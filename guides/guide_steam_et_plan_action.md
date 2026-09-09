@@ -35,9 +35,9 @@ flowchart TD
 *Vous pouvez copier l'encadré ci-dessous directement dans l'éditeur de Guide Steam. Il utilise les balises BBCode officielles reconnues par Steam.*
 
 ```bbcode
-[h1]Dragon Quest : Torneko - Patch de Traduction Française Intégrale (PC)[/h1]
+[h1]Dragon Quest : Torneko - Patch de Traduction Française Intégrale [PC / Steam Deck / Linux][/h1]
 
-[b]Ce guide vous permet d'installer facilement le mod de traduction française pour Dragon Quest Heroes: Torneko's Mystery Dungeon -Classic HD- sur Steam.[/b]
+[b]Ce guide vous permet d'installer facilement le mod de traduction française pour Dragon Quest Heroes: Torneko's Mystery Dungeon -Classic HD- sur PC, Steam Deck et Linux.[/b]
 
 Ce projet est une fan-traduction bénévole créée avec passion pour permettre à tous les joueurs francophones de découvrir ce chef-d'œuvre du dungeon-crawler rétro dans des conditions optimales !
 
@@ -48,6 +48,7 @@ Ce projet est une fan-traduction bénévole créée avec passion pour permettre 
 [*] [b]Menus & Interface 100% en Français[/b] (Écran-titre, options, commandes, fenêtres de stats).
 [*] [b]Nomenclature officielle Dragon Quest FR[/b] (Épée de mercure, Parchemin Décuplo, Aile de chimère, Herbe médicinale...).
 [*] [b]Typographie rétro optimisée[/b] adaptée à l'écran et au moteur du jeu, sans coupure de mots ni débordement.
+[*] [b]Compatible Steam Deck & Linux[/b] (Tourne nativement sur SteamOS et toute distribution Linux via Proton).
 [*] [b]Installation simple et sans risque[/b] : aucun fichier système n'est altéré, désinstallation en un clic.
 [/list]
 

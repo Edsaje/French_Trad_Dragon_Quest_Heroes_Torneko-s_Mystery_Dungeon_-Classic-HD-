@@ -8,11 +8,11 @@ Ce guide est spécialement conçu pour annoncer le projet sur le Hub de la Commu
 ### 📋 Version Steam BBCode (Prête à copier-coller dans Steam)
 
 ```bbcode
-[h1]🚧 [WIP / En Cours] Traduction Française Intégrale - Dragon Quest : Torneko (PC)[/h1]
+[h1]🚧 [WIP / En Cours] Traduction Française Intégrale - Dragon Quest : Torneko [PC / Steam Deck / Linux][/h1]
 
-[b]Oyé marchands et aventuriers ! Une fan-traduction française intégrale pour [i]Dragon Quest Heroes: Torneko's Mystery Dungeon -Classic HD-[/i] est officiellement en cours de développement sur PC ![/b]
+[b]Oyé marchands et aventuriers ! Une fan-traduction française intégrale pour [i]Dragon Quest Heroes: Torneko's Mystery Dungeon -Classic HD-[/i] est officiellement en cours de développement sur PC, Steam Deck et Linux ![/b]
 
-Le jeu n'étant disponible qu'en japonais et en anglais, ce projet bénévole et passionné a pour but de vous offrir une expérience 100% en français, fidèle à l'esprit rétro et aux termes officiels de la saga Dragon Quest.
+Le jeu n'étant disponible qu'en japonais et en anglais, ce projet bénévole et passionné a pour but de vous offrir une expérience 100% en français, fidèle à l'esprit rétro et aux termes officiels de la saga Dragon Quest. Le patch est nativement compatible avec Windows, Linux et SteamOS (Steam Deck).
 
 [hr][/hr]
 

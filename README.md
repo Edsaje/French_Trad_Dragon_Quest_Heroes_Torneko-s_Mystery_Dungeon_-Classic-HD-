@@ -1,8 +1,10 @@
 # 🗡️ Dragon Quest Heroes: Torneko's Mystery Dungeon -Classic HD-
-### 🇫🇷 Patch de Traduction Française Intégrale (PC / Steam)
+### 🇫🇷 Patch de Traduction Française Intégrale (PC / Steam / Steam Deck / Linux)
 
 [![Version](https://img.shields.io/badge/Version-v0.5--Beta-blue.svg)](https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-/releases)
 [![Statut](https://img.shields.io/badge/Statut-Work%20In%20Progress%20(WIP)-orange.svg)](https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-)
+[![Steam Deck](https://img.shields.io/badge/Steam%20Deck-Compatible%20100%25-success.svg)](https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-)
+[![Linux](https://img.shields.io/badge/Linux-Proton%20OK-brightgreen.svg)](https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-)
 [![Licence](https://img.shields.io/badge/Licence-Gratuit%20%2F%20Fan--Mod-green.svg)](LICENSE)
 [![YouTube](https://img.shields.io/badge/YouTube-@Hibouxe-red.svg)](https://www.youtube.com/@Hibouxe)
 
@@ -50,6 +52,17 @@ Pour suivre le développement de la traduction, découvrir des vidéos de gamepl
 4. *(Recommandé)* Renommez le fichier existant `TornekosMysteryDungeon-Windows.pak` en `TornekosMysteryDungeon-Windows.pak.backup`.
 5. Collez le fichier `TornekosMysteryDungeon-Windows.pak` téléchargé dans ce dossier.
 6. Lancez le jeu avec la langue réglée sur **Anglais**. Bon jeu !
+
+### 🎮 Installation sur Steam Deck & Linux (SteamOS / Proton)
+Le patch est **100% fonctionnel sur Steam Deck et Linux** !
+1. Sur Steam Deck, passez en **Mode Bureau** (*Bouton STEAM > Marche/Arrêt > Basculer vers le bureau*).
+2. Téléchargez l'archive du patch et extrayez le fichier `TornekosMysteryDungeon-Windows.pak`.
+3. Ouvrez le gestionnaire de fichiers Dolphin (ou via Steam : *Clic droit sur le jeu > Gérer > Parcourir les fichiers locaux*), puis rendez-vous dans :
+   ```
+   TornekosMysteryDungeon / Content / Paks /
+   ```
+4. Remplacez le fichier `TornekosMysteryDungeon-Windows.pak`.
+5. Repassez en **Mode Jeu** : Torneko se lance directement en français !
 
 ### Désinstallation
 Pour revenir à la version anglaise ou japonaise officielle, supprimez simplement `TornekosMysteryDungeon-Windows.pak` et restaurez votre backup, ou faites :
