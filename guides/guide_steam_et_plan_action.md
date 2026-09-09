@@ -83,8 +83,7 @@ Pour revenir au jeu d'origine, supprimez simplement le fichier [i]TornekosMyster
 
 Ce mod est et restera [b]100% gratuit[/b] pour toute la communauté.
 
-Si vous appréciez le travail de rétro-ingénierie et de localisation réalisé sur ce jeu, vous pouvez soutenir le projet avec un petit pourboire ou un café :
-👉 [b]Lien de soutien (Tipeee / Ko-fi / PayPal) :[/b] [url=https://ko-fi.com/VOTRE_PSEUDO]https://ko-fi.com/VOTRE_PSEUDO[/url]
+👉 [b]Faire un don via PayPal :[/b] [url=https://www.paypal.com/donate/?business=edsaje746@gmail.com&currency_code=EUR][b]Cliquez ici pour faire un don PayPal (edsaje746@gmail.com)[/b][/url]
 
 [hr][/hr]
 

@@ -89,8 +89,7 @@ Je partagerai régulièrement des nouvelles et des démonstrations en vidéo au 
 
 Ce mod est un travail de passionné et sera [b]toujours 100% gratuit[/b] pour tout le monde. 
 
-La rétro-ingénierie du moteur de Square Enix et la traduction demandant de nombreuses heures de travail, si vous souhaitez encourager le projet avec un petit café ou un pourboire, c'est énormément apprécié :
-👉 [b]Page de soutien :[/b] [url=https://ko-fi.com/VOTRE_PSEUDO]https://ko-fi.com/VOTRE_PSEUDO[/url]
+👉 [b]Faire un don via PayPal :[/b] [url=https://www.paypal.com/donate/?business=edsaje746@gmail.com&currency_code=EUR][b]Cliquez ici pour faire un don PayPal (edsaje746@gmail.com)[/b][/url]
 
 [hr][/hr]
 
