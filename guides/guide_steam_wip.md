@@ -89,7 +89,7 @@ Je partagerai régulièrement des nouvelles et des démonstrations en vidéo au 
 
 Ce mod est un travail de passionné et sera [b]toujours 100% gratuit[/b] pour tout le monde. 
 
-👉 [b]Faire un don via PayPal :[/b] [url=https://www.paypal.com/donate/?business=edsaje746@gmail.com&currency_code=EUR][b]Cliquez ici pour faire un don PayPal (edsaje746@gmail.com)[/b][/url]
+👉 [b]Faire un don via PayPal :[/b] [url=https://paypal.me/Hibouxe][b]https://paypal.me/Hibouxe[/b][/url] *(ou à edsaje746@gmail.com)*
 
 [hr][/hr]
 

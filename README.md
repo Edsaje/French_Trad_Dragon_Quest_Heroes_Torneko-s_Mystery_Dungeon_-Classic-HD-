@@ -63,7 +63,7 @@ Ce mod est et demeurera **100% gratuit** pour tous les joueurs.
 
 La rétro-ingénierie du moteur Radec de Square Enix, le décodage des binaires propriétaires, l'adaptation de la police et la traduction demandant des dizaines d'heures de travail bénévole, si vous souhaitez offrir un café ou encourager les prochaines mises à jour :
 
-👉 **Faire un don via PayPal :** [**Cliquez ici pour faire un don PayPal**](https://www.paypal.com/donate/?business=edsaje746@gmail.com&currency_code=EUR) *(ou versement direct à `edsaje746@gmail.com`)*
+👉 **Faire un don via PayPal :** [**paypal.me/Hibouxe**](https://paypal.me/Hibouxe) *(ou versement direct à `edsaje746@gmail.com`)*
 
 ---
 
