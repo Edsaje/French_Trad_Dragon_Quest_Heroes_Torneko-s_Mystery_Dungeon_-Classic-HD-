@@ -43,8 +43,7 @@ def assemble_dialogue():
     applied = 0
     for k, v in rows.items():
         if k in merged:
-            fr_text = clean_retro_text(merged[k])
-            clean_bytes = fr_text.encode('latin1')
+            clean_bytes = merged[k].encode('latin1')
             rows[k][1][0] = ('str', encode_radec(clean_bytes))
             applied += 1
         else:

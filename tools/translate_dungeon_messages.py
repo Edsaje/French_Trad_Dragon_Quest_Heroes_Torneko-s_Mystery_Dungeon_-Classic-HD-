@@ -321,7 +321,7 @@ def translate_dungeon_messages():
     for k, v in rows.items():
         if k in DUNGEON_MESSAGES_FR:
             fr_text = DUNGEON_MESSAGES_FR[k]
-            clean_bytes = clean_retro_text(fr_text).encode('latin1')
+            clean_bytes = fr_text.encode('latin1')
             rows[k][1][0] = ('str', encode_radec(clean_bytes))
             translated += 1
         else:

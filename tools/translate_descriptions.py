@@ -39,9 +39,9 @@ ITEM_DESCRIPTIONS_FR = {
     23: "Cet anneau vous empeche de tomber dans les pieges.",
     24: "Cet anneau vous protege contre la magie des pantins.",
     25: "Cet anneau reveille tous les monstres lorsque vous entrez dans une piece.",
-    26: "Ces fleches permettent d'attaquer a distance. Appuyez sur bouton fleche pour tirer.",
-    27: "Ces fleches permettent d'attaquer a distance. Appuyez sur bouton fleche pour tirer.",
-    28: "Ces fleches percent les ennemis et les murs. Appuyez sur bouton fleche pour tirer.",
+    26: "Ces fleches permettent d'attaquer a distance. Appuyez sur \x02)\x03\xeb#\x03 pour tirer.",
+    27: "Ces fleches permettent d'attaquer a distance. Appuyez sur \x02)\x03\xeb#\x03 pour tirer.",
+    28: "Ces fleches percent les ennemis et les murs. Appuyez sur \x02)\x03\xeb#\x03 pour tirer.",
     29: "Ce petit en-cas restaure un peu de satiete.",
     30: "Ce gros pain restaure completement votre satiete.",
     31: "Ce pain moisi rassasie, mais reduit votre force avec son poison.",
@@ -123,7 +123,7 @@ def translate_item_descriptions():
         else:
             fr_text = ""
 
-        clean_bytes = clean_retro_text(fr_text).encode('latin1')
+        clean_bytes = fr_text.encode('latin1')
         rows[i][1][0] = ('str', encode_radec(clean_bytes))
 
     writer = VariantWriter()
