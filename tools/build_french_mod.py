@@ -453,7 +453,109 @@ ITEM_TRANSLATIONS = {
     "Trap Arrow": ("fleche piege", "Fleche piege", "fleches pieges", "Fleches pieges"),
     "Dragon's Breath": ("souffle du dragon", "Souffle du dragon", "souffles du dragon", "Souffles du dragon"),
     "Kazapple Scroll": ("parch. Megafoudre", "Parch. Megafoudre", "parchemins Megafoudre", "Parchemins Megafoudre"),
-    "Box of Multiple Miracles": ("boite a miracles", "Boite a miracles", "boites a miracles", "Boites a miracles")
+    "Box of Multiple Miracles": ("boite a miracles", "Boite a miracles", "boites a miracles", "Boites a miracles"),
+    # Unidentified Rings (100 - 112)
+    "Diamond Ring": ("bague de diamant", "Bague de diamant", "bagues de diamant", "Bagues de diamant"),
+    "Pearl Ring": ("bague de perle", "Bague de perle", "bagues de perle", "Bagues de perle"),
+    "Ruby Ring": ("bague de rubis", "Bague de rubis", "bagues de rubis", "Bagues de rubis"),
+    "Sapphire Ring": ("bague de saphir", "Bague de saphir", "bagues de saphir", "Bagues de saphir"),
+    "Coral Ring": ("bague de corail", "Bague de corail", "bagues de corail", "Bagues de corail"),
+    "Turquoise Ring": ("bague de turquoise", "Bague de turquoise", "bagues de turquoise", "Bagues de turquoise"),
+    "Emerald Ring": ("bague d'emeraude", "Bague d'emeraude", "bagues d'emeraude", "Bagues d'emeraude"),
+    "Amethyst Ring": ("bague d'amethyste", "Bague d'amethyste", "bagues d'amethyste", "Bagues d'amethyste"),
+    "Opal Ring": ("bague d'opale", "Bague d'opale", "bagues d'opale", "Bagues d'opale"),
+    "Jade Ring": ("bague de jade", "Bague de jade", "bagues de jade", "Bagues de jade"),
+    "Amber Ring": ("bague d'ambre", "Bague d'ambre", "bagues d'ambre", "Bagues d'ambre"),
+    "Topaz Ring": ("bague de topaze", "Bague de topaze", "bagues de topaze", "Bagues de topaze"),
+    "Agate Ring": ("bague d'agate", "Bague d'agate", "bagues d'agate", "Bagues d'agate"),
+    # Unidentified Herbs (113 - 126)
+    "Red Herb": ("herbe rouge", "Herbe rouge", "herbes rouges", "Herbes rouges"),
+    "Blue Herb": ("herbe bleue", "Herbe bleue", "herbes bleues", "Herbes bleues"),
+    "Yellow Herb": ("herbe jaune", "Herbe jaune", "herbes jaunes", "Herbes jaunes"),
+    "Green Herb": ("herbe verte", "Herbe verte", "herbes vertes", "Herbes vertes"),
+    "White Herb": ("herbe blanche", "Herbe blanche", "herbes blanches", "Herbes blanches"),
+    "Black Herb": ("herbe noire", "Herbe noire", "herbes noires", "Herbes noires"),
+    "Pink Herb": ("herbe rose", "Herbe rose", "herbes roses", "Herbes roses"),
+    "Orange Herb": ("herbe orange", "Herbe orange", "herbes oranges", "Herbes oranges"),
+    "Purple Herb": ("herbe violette", "Herbe violette", "herbes violettes", "Herbes violettes"),
+    "Brown Herb": ("herbe marron", "Herbe marron", "herbes marron", "Herbes marron"),
+    "Grey Herb": ("herbe grise", "Herbe grise", "herbes grises", "Herbes grises"),
+    "Light Blue Herb": ("herbe bleu clair", "Herbe bleu clair", "herbes bleu clair", "Herbes bleu clair"),
+    "Vermilion Herb": ("herbe vermillon", "Herbe vermillon", "herbes vermillon", "Herbes vermillon"),
+    "Navy Blue Herb": ("herbe bleu marine", "Herbe bleu marine", "herbes bleu marine", "Herbes bleu marine"),
+    # Unidentified Scrolls (127 - 145)
+    "Mouse Scroll": ("parch. Souris", "Parch. Souris", "parchemins Souris", "Parchemins Souris"),
+    "Cow Scroll": ("parch. Boeuf", "Parch. Boeuf", "parchemins Boeuf", "Parchemins Boeuf"),
+    "Tiger Scroll": ("parch. Tigre", "Parch. Tigre", "parchemins Tigre", "Parchemins Tigre"),
+    "Rabbit Scroll": ("parch. Lapin", "Parch. Lapin", "parchemins Lapin", "Parchemins Lapin"),
+    "Dragon Scroll": ("parch. Dragon", "Parch. Dragon", "parchemins Dragon", "Parchemins Dragon"),
+    "Snake Scroll": ("parch. Serpent", "Parch. Serpent", "parchemins Serpent", "Parchemins Serpent"),
+    "Horse Scroll": ("parch. Cheval", "Parch. Cheval", "parchemins Cheval", "Parchemins Cheval"),
+    "Sheep Scroll": ("parch. Mouton", "Parch. Mouton", "parchemins Mouton", "Parchemins Mouton"),
+    "Monkey Scroll": ("parch. Singe", "Parch. Singe", "parchemins Singe", "Parchemins Singe"),
+    "Bird Scroll": ("parch. Oiseau", "Parch. Oiseau", "parchemins Oiseau", "Parchemins Oiseau"),
+    "Dog Scroll": ("parch. Chien", "Parch. Chien", "parchemins Chien", "Parchemins Chien"),
+    "Boar Scroll": ("parch. Sanglier", "Parch. Sanglier", "parchemins Sanglier", "Parchemins Sanglier"),
+    "Cat Scroll": ("parch. Chat", "Parch. Chat", "parchemins Chat", "Parchemins Chat"),
+    "Deer Scroll": ("parch. Cerf", "Parch. Cerf", "parchemins Cerf", "Parchemins Cerf"),
+    "Frog Scroll": ("parch. Grenouille", "Parch. Grenouille", "parchemins Grenouille", "Parchemins Grenouille"),
+    "Lizard Scroll": ("parch. Lezard", "Parch. Lezard", "parchemins Lezard", "Parchemins Lezard"),
+    "Elephant Scroll": ("parch. Elephant", "Parch. Elephant", "parchemins Elephant", "Parchemins Elephant"),
+    "Giraffe Scroll": ("parch. Girafe", "Parch. Girafe", "parchemins Girafe", "Parchemins Girafe"),
+    "Bear Scroll": ("parch. Ours", "Parch. Ours", "parchemins Ours", "Parchemins Ours"),
+    # Unidentified Wands (146 - 159)
+    "Cherry-Wood Wand": ("baguette de cerisier", "Baguette de cerisier", "baguettes de cerisier", "Baguettes de cerisier"),
+    "Plum-Wood Wand": ("baguette de prunier", "Baguette de prunier", "baguettes de prunier", "Baguettes de prunier"),
+    "Pine Wand": ("baguette de pin", "Baguette de pin", "baguettes de pin", "Baguettes de pin"),
+    "Bamboo Wand": ("baguette de bambou", "Baguette de bambou", "baguettes de bambou", "Baguettes de bambou"),
+    "Cedar Wand": ("baguette de cedre", "Baguette de cedre", "baguettes de cedre", "Baguettes de cedre"),
+    "Willow Wand": ("baguette de saule", "Baguette de saule", "baguettes de saule", "Baguettes de saule"),
+    "Chestnut Wand": ("baguette de chataignier", "Baguette de chataignier", "baguettes de chataignier", "Baguettes de chataignier"),
+    "Gold Wand": ("baguette d'or", "Baguette d'or", "baguettes d'or", "Baguettes d'or"),
+    "Silver Wand": ("baguette d'argent", "Baguette d'argent", "baguettes d'argent", "Baguettes d'argent"),
+    "Copper Wand": ("baguette de cuivre", "Baguette de cuivre", "baguettes de cuivre", "Baguettes de cuivre"),
+    "Iron Wand": ("baguette de fer", "Baguette de fer", "baguettes de fer", "Baguettes de fer"),
+    "Lead Wand": ("baguette de plomb", "Baguette de plomb", "baguettes de plomb", "Baguettes de plomb"),
+    "Bone Wand": ("baguette d'os", "Baguette d'os", "baguettes d'os", "Baguettes d'os"),
+    "Ivory Wand": ("baguette d'ivoire", "Baguette d'ivoire", "baguettes d'ivoire", "Baguettes d'ivoire")
+}
+
+MONSTER_TRANSLATIONS = {
+    "Slime": ("gluant", "Gluant", "gluants", "Gluants"),
+    "Dracky": ("vampivol", "Vampivol", "vampivols", "Vampivols"),
+    "Maulusc": ("glimacon", "Glimacon", "glimacons", "Glimacons"),
+    "Ghosts": ("fantome", "Fantome", "fantomes", "Fantomes"),
+    "Ghost": ("fantome", "Fantome", "fantomes", "Fantomes"),
+    "Platypunk": ("sacatouille", "Sacatouille", "sacatouilles", "Sacatouilles"),
+    "Legerdeman": ("envoutueur", "Envoutueur", "envoutueurs", "Envoutueurs"),
+    "Bodkin Archer": ("archer vert", "Archer vert", "archers verts", "Archers verts"),
+    "Funghoul": ("champi-gnome", "Champi-gnome", "champi-gnomes", "Champi-gnomes"),
+    "Drooling Ghoul": ("smeagoule", "Smeagoule", "smeagoules", "Smeagoules"),
+    "Mummy Boy": ("momie miniature", "Momie miniature", "momies miniatures", "Momies miniatures"),
+    "Bag o' Laughs": ("sac de rire", "Sac de rire", "sacs de rire", "Sacs de rire"),
+    "Chimaera": ("chimere", "Chimere", "chimeres", "Chimeres"),
+    "Lump Shaman": ("magimol", "Magimol", "magimols", "Magimols"),
+    "Liquid Metal Slime": ("metagluant", "Metagluant", "metagluants", "Metagluants"),
+    "Restless Armour": ("armure errante", "Armure errante", "armures errantes", "Armures errantes"),
+    "Walking Corpse": ("mort-vivant", "Mort-vivant", "morts-vivants", "Morts-vivants"),
+    "Imp": ("diablotin", "Diablotin", "diablotins", "Diablotins"),
+    "Living Statue": ("statue vivante", "Statue vivante", "statues vivantes", "Statues vivantes"),
+    "Powie Yowie": ("yeti yetu", "Yeti yetu", "yetis yetus", "Yetis yetus"),
+    "Rockbomb": ("bomberok", "Bomberok", "bomberoks", "Bomberoks"),
+    "Golem": ("golem", "Golem", "golems", "Golems"),
+    "Mud Mannequin": ("pantin de boue", "Pantin de boue", "pantins de boue", "Pantins de boue"),
+    "Muddy Hand": ("main de boue", "Main de boue", "mains de boue", "Mains de boue"),
+    "Shadow": ("ombre", "Ombre", "ombres", "Ombres"),
+    "Mimic": ("imitateur", "Imitateur", "imitateurs", "Imitateurs"),
+    "Gigantes": ("gigante", "Gigante", "gigantes", "Gigantes"),
+    "Winky": ("clindoeil", "Clindoeil", "clindoeils", "Clindoeils"),
+    "Float-o-Copier": ("manemane", "Manemane", "manemanes", "Manemanes"),
+    "Pocus Poppet": ("talismaboule", "Talismaboule", "talismaboules", "Talismaboules"),
+    "Silvapithecus": ("silvapitheque", "Silvapitheque", "silvapitheques", "Silvapitheques"),
+    "Archdemon": ("archidemon", "Archidemon", "archidemons", "Archidemons"),
+    "Green Dragon": ("dragon vert", "Dragon vert", "dragons verts", "Dragons verts"),
+    "Batmandrill": ("vamprimate", "Vamprimate", "vamprimates", "Vamprimates"),
+    "Invisible Enemy": ("ennemi invisible", "Ennemi invisible", "ennemis invisibles", "Ennemis invisibles")
 }
 
 def translate_ui():
@@ -472,8 +574,10 @@ def translate_ui():
                 if row_key in FRENCH_UI:
                     french_text = clean_retro_text(FRENCH_UI[row_key])
                     list_type, list_items = row_val
-                    # IMPORTANT: Do NOT alter orig_px! The engine uses it as the layout box width!
                     list_items[0] = ('str', french_text)
+                    # Calibration cadrage des boutons d'escalier (Descendre / Monter / Rester)
+                    if row_key in ("ui_down", "ui_down_cancel", "ui_up", "ui_up_cancel"):
+                        list_items[1] = ('int', 572)
                     translated_count += 1
 
     print(f"UI: Applied {translated_count} French translations.")
@@ -503,9 +607,16 @@ def translate_items():
                 eng_name = items[8][1]
                 if eng_name in ITEM_TRANSLATIONS:
                     fr_sgl, fr_sgg, fr_plr, fr_plg = ITEM_TRANSLATIONS[eng_name]
-                    items[0] = ('str', clean_retro_text(fr_sgl))
-                    items[2] = ('str', clean_retro_text(fr_plr))
-                    items[8] = ('str', clean_retro_text(fr_sgg))
+                    clean_sgl = clean_retro_text(fr_sgl)
+                    clean_plr = clean_retro_text(fr_plr)
+                    clean_sgg = clean_retro_text(fr_sgg)
+                    items[0] = ('str', clean_sgl)
+                    items[2] = ('str', clean_plr)
+                    items[8] = ('str', clean_sgg)
+                    if clean_sgl and clean_sgl[0].lower() in 'aeiouy':
+                        items[4] = ('int', 2)
+                    else:
+                        items[4] = ('int', 0)
                     item_count += 1
 
     print(f"Items: Applied {item_count} French item translations.")
@@ -518,9 +629,49 @@ def translate_items():
     with open(os.path.join(dest_dir, "1290896954"), 'wb') as fp:
         fp.write(compress_and_scramble(new_bin, 1290896954))
 
+def translate_monsters():
+    src_bin = os.path.join(DECOMP_DIR, "860534025.bin")
+    with open(src_bin, 'rb') as fp:
+        raw_bin = fp.read()
+
+    reader = VariantReader(raw_bin)
+    tree_type, root_entries = reader.parse()
+
+    monster_count = 0
+    for root_k, root_v in root_entries:
+        if root_k == "rows":
+            rows_type, rows = root_v
+            for row in rows:
+                items = row[1]
+                eng_name = items[8][1]
+                if eng_name in MONSTER_TRANSLATIONS:
+                    fr_sgl, fr_sgg, fr_plr, fr_plg = MONSTER_TRANSLATIONS[eng_name]
+                    clean_sgl = clean_retro_text(fr_sgl)
+                    clean_plr = clean_retro_text(fr_plr)
+                    clean_sgg = clean_retro_text(fr_sgg)
+                    items[0] = ('str', clean_sgl)
+                    items[2] = ('str', clean_plr)
+                    items[8] = ('str', clean_sgg)
+                    if clean_sgl and clean_sgl[0].lower() in 'aeiouy':
+                        items[4] = ('int', 2)
+                    else:
+                        items[4] = ('int', 0)
+                    monster_count += 1
+
+    print(f"Monsters: Applied {monster_count} French monster translations.")
+    writer = VariantWriter()
+    writer.write((tree_type, root_entries))
+    new_bin = bytes(writer.buf)
+
+    dest_dir = os.path.join(MOD_STAGING, "TornekosMysteryDungeon", "Content", "Anya", "Radec")
+    os.makedirs(dest_dir, exist_ok=True)
+    with open(os.path.join(dest_dir, "860534025"), 'wb') as fp:
+        fp.write(compress_and_scramble(new_bin, 860534025))
+
 def main():
     translate_ui()
     translate_items()
+    translate_monsters()
     print("Translation files prepared in mod_staging.")
 
 if __name__ == "__main__":

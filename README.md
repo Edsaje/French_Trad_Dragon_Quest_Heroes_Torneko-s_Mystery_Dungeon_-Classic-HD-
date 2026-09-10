@@ -27,8 +27,10 @@ Pour suivre le développement de la traduction, découvrir des vidéos de gamepl
 | Élément | Progression | Statut |
 | :--- | :---: | :--- |
 | 🖥️ **Interface & Menus généraux** *(Écran-titre, options, commandes, HUD)* | **100%** | ✅ Terminé & Vérifié en jeu |
-| 🗡️ **Base de données des objets & catégories** *(Armes, boucliers, herbes, etc.)* | **100%** | ✅ Terminé & Vérifié en jeu |
+| 🗡️ **Objets & Équipements identifiés** *(Armes, boucliers, herbes, etc.)* | **100%** | ✅ Terminé & Vérifié en jeu |
+| 🔮 **Objets non identifiés** *(Anneaux minéraux, herbes, parchemins, baguettes)* | **100%** | ✅ Terminé & Vérifié en jeu |
 | 📜 **Descriptions détaillées des 160 objets** *(Effets, statistiques, astuces)* | **100%** | ✅ Terminé & Vérifié en jeu |
+| 👾 **Bestiaire complet & Monstres** *(Nomenclature officielle Dragon Quest FR)* | **100%** | ✅ Terminé & Vérifié en jeu |
 | ⚔️ **Journal de combat & Événements en donjon** *(294 messages et pièges)* | **100%** | ✅ Terminé & Vérifié en jeu |
 | 💬 **Scénario, Histoire & Dialogues PNJ** *(544 répliques de village et donjon)* | **100%** | ✅ Terminé & Vérifié en jeu |
 | 🏆 **Didacticiels complets & Registre des exploits** | **100%** | ✅ Terminé & Vérifié en jeu |
