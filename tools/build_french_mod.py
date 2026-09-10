@@ -14,6 +14,7 @@ GAME_PAKS_DIR = r"E:\SteamLibrary\steamapps\common\TornekosMysteryDungeon\Tornek
 def clean_retro_text(s: str) -> str:
     """Normalize text to clean ASCII so that the game engine's utf8len and
     the 1-byte enSGOZ font atlas render every character without blanks or bugs."""
+    has_var_tag = ('\x02)\x03\xeb\x0b\x03' in s)
     replacements = {
         'é': 'e', 'è': 'e', 'ê': 'e', 'ë': 'e',
         'É': 'E', 'È': 'E', 'Ê': 'E', 'Ë': 'E',
@@ -30,6 +31,8 @@ def clean_retro_text(s: str) -> str:
     }
     for k, v in replacements.items():
         s = s.replace(k, v)
+    if has_var_tag:
+        s = s.replace('\x02)\x03e\x0b\x03', '\x02)\x03\xeb\x0b\x03')
     return s
 
 class VariantReader:

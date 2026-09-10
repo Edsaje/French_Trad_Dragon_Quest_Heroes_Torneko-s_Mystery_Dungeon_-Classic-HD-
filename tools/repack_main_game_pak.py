@@ -25,12 +25,12 @@ def main():
     staged_radec = os.path.join(MOD_STAGING, "TornekosMysteryDungeon", "Content", "Anya", "Radec")
     dest_radec = os.path.join(EXTRACTED_PAK, "TornekosMysteryDungeon", "Content", "Anya", "Radec")
 
-    for fname in ["287453834", "1290896954"]:
+    for fname in os.listdir(staged_radec):
         src = os.path.join(staged_radec, fname)
         dst = os.path.join(dest_radec, fname)
-        if os.path.exists(src):
+        if os.path.isfile(src):
             shutil.copy2(src, dst)
-            print(f"  Overwrote {dst} with French translation ({os.path.getsize(dst)} bytes)")
+            print(f"  Overwrote {fname} in extracted_pak ({os.path.getsize(dst)} bytes)")
 
     print("\nStep 2: Packing extracted_pak with repak...")
     cmd = [
