@@ -530,7 +530,7 @@ MONSTER_TRANSLATIONS = {
     "Legerdeman": ("prestidigitatueur", "Prestidigitatueur", "prestidigitatueurs", "Prestidigitatueurs"),
     "Bodkin Archer": ("archer vert", "Archer vert", "archers verts", "Archers verts"),
     "Funghoul": ("champi-gnome", "Champi-gnome", "champi-gnomes", "Champi-gnomes"),
-    "Drooling Ghoul": ("smeagoule", "Smeagoule", "smeagoules", "Smeagoules"),
+    "Drooling Ghoul": ("goule", "Goule", "goules", "Goules"),
     "Mummy Boy": ("momignon", "Momignon", "momignons", "Momignons"),
     "Bag o' Laughs": ("maransac", "Maransac", "maransacs", "Maransacs"),
     "Chimaera": ("chimere", "Chimere", "chimeres", "Chimeres"),
