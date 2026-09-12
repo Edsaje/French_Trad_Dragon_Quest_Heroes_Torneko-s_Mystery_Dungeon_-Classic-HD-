@@ -528,7 +528,7 @@ MONSTER_TRANSLATIONS = {
     "Ghost": ("fantome", "Fantome", "fantomes", "Fantomes"),
     "Platypunk": ("ornithox", "Ornithox", "ornithox", "Ornithox"),
     "Legerdeman": ("marmitou", "Marmitou", "marmitous", "Marmitous"),
-    "Bodkin Archer": ("tire-fleches", "Tire-fleches", "tire-fleches", "Tire-fleches"),
+    "Bodkin Archer": ("archer vert", "Archer vert", "archers verts", "Archers verts"),
     "Funghoul": ("champi-gnome", "Champi-gnome", "champi-gnomes", "Champi-gnomes"),
     "Drooling Ghoul": ("smeagoule", "Smeagoule", "smeagoules", "Smeagoules"),
     "Mummy Boy": ("momignon", "Momignon", "momignons", "Momignons"),
