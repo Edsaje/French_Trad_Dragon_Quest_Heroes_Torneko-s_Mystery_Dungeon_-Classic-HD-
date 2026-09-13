@@ -1,7 +1,7 @@
 # 🗡️ Dragon Quest Heroes: Torneko's Mystery Dungeon -Classic HD-
 ### 🇫🇷 Patch de Traduction Française Intégrale (PC / Steam / Steam Deck / Linux)
 
-[![Version](https://img.shields.io/badge/Version-v1.0--Finale-brightgreen.svg)](https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-/releases)
+[![Version](https://img.shields.io/badge/Version-v1.1.0--Stable-brightgreen.svg)](https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-/releases)
 [![Statut](https://img.shields.io/badge/Statut-100%25%20Termin%C3%A9-success.svg)](https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-)
 [![Steam Deck](https://img.shields.io/badge/Steam%20Deck-Compatible%20100%25-success.svg)](https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-)
 [![Linux](https://img.shields.io/badge/Linux-Proton%20OK-brightgreen.svg)](https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-)
@@ -34,6 +34,16 @@ Pour suivre le développement de la traduction, découvrir des vidéos de gamepl
 | ⚔️ **Journal de combat & Événements en donjon** *(294 messages et pièges)* | **100%** | ✅ Terminé & Vérifié en jeu |
 | 💬 **Scénario, Histoire & Dialogues PNJ** *(544 répliques de village et donjon)* | **100%** | ✅ Terminé & Vérifié en jeu |
 | 🏆 **Didacticiels complets & Registre des exploits** | **100%** | ✅ Terminé & Vérifié en jeu |
+
+---
+
+## 📝 Journal des modifications (Changelog)
+
+### Version 1.1.0 (Correctif majeur & Finalisation lore)
+- **Correction du freeze / softlock critique :** Résolution d'un dysfonctionnement binaire de balise dans les scènes d'agrandissement de la boutique.
+- **Rétablissement du calcul de l'or :** Correction de l'évaluation des gains d'or sur les objets ramenés en boutique.
+- **Harmonisation complète du Bestiaire :** Révision intégrale des 34 monstres selon la nomenclature officielle de Square Enix (*Ornithox, Prestidigitatueur, Maransac, Rochexplosif, Géant, Feutocopieur, Goule...*).
+- **100% des dialogues fonctionnels en français :** L'ensemble des 544 répliques du jeu est désormais parfaitement stable.
 
 ---
 
