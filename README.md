@@ -50,13 +50,13 @@ Pour suivre le développement de la traduction, découvrir des vidéos de gamepl
 ## 📥 Téléchargement & Installation
 
 ### Option 1 : Installation automatique en 1-clic (Recommandé)
-1. Téléchargez la dernière archive : [**TornekosMysteryDungeon-Windows_Patch_FR_v1.0.zip**](patch/TornekosMysteryDungeon-Windows_Patch_FR_v1.0.zip)
+1. Téléchargez la dernière archive : [**TornekosMysteryDungeon-Windows_Patch_FR_v1.1.0.zip**](patch/TornekosMysteryDungeon-Windows_Patch_FR_v1.1.0.zip)
 2. Décompressez l'archive sur votre ordinateur.
 3. Lancez le fichier **`installer.bat`** (il détecte automatiquement votre jeu, sauvegarde vos fichiers originaux et installe le patch en 5 secondes).
 4. Lancez le jeu via Steam en vous assurant que la langue est configurée sur **Anglais** dans les paramètres du jeu (le français s'affichera directement).
 
 ### Option 2 : Installation manuelle (30 secondes)
-1. Téléchargez l'archive [**TornekosMysteryDungeon-Windows_Patch_FR_v1.0.zip**](patch/TornekosMysteryDungeon-Windows_Patch_FR_v1.0.zip).
+1. Téléchargez l'archive [**TornekosMysteryDungeon-Windows_Patch_FR_v1.1.0.zip**](patch/TornekosMysteryDungeon-Windows_Patch_FR_v1.1.0.zip).
 2. Ouvrez votre bibliothèque Steam, faites un clic droit sur le jeu > **Gérer** > **Parcourir les fichiers locaux**.
 3. Allez dans le répertoire :
    ```

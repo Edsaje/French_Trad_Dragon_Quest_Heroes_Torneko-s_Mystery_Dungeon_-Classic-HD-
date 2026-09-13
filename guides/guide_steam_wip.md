@@ -66,15 +66,15 @@ Le jeu officiel n'étant paru qu'en japonais et en anglais, ce projet bénévole
 [/tr]
 [/table]
 
-[b]Progression globale : [██████████] 100% (Version Finale v1.0)[/b]
+[b]Progression globale : [██████████] 100% (Version Finale v1.1.0)[/b]
 
 [hr][/hr]
 
-[h1]🎮 Télécharger le Patch FR v1.0 Final ![/h1]
+[h1]🎮 Télécharger le Patch FR v1.1.0 Final ![/h1]
 
 L'archive complète prête à l'emploi (contenant le mod, l'installateur automatique et le guide) est disponible en téléchargement direct :
 
-👉 [url=https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-/raw/main/patch/TornekosMysteryDungeon-Windows_Patch_FR_v1.0.zip][b][Cliquez ici pour télécharger le Patch FR v1.0 (Archive ZIP avec Installateur)][/b][/url]
+👉 [url=https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-/raw/main/patch/TornekosMysteryDungeon-Windows_Patch_FR_v1.1.0.zip][b][Cliquez ici pour télécharger le Patch FR v1.1.0 (Archive ZIP avec Installateur)][/b][/url]
 👉 [url=https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-][b][Consulter le Dépôt GitHub Officiel du Projet][/b][/url]
 
 [hr][/hr]
@@ -83,7 +83,7 @@ L'archive complète prête à l'emploi (contenant le mod, l'installateur automat
 
 [h2]Méthode 1 : Installation automatique en 1 clic (Recommandé - Windows)[/h2]
 [olist]
-[*] Téléchargez l'archive [b]TornekosMysteryDungeon-Windows_Patch_FR_v1.0.zip[/b] ci-dessus.
+[*] Téléchargez l'archive [b]TornekosMysteryDungeon-Windows_Patch_FR_v1.1.0.zip[/b] ci-dessus.
 [*] Décompressez l'archive sur votre ordinateur.
 [*] Double-cliquez sur le fichier [b]installer.bat[/b].
 [*] L'installateur détecte automatiquement votre jeu Steam, sauvegarde vos fichiers d'origine et installe le patch en 5 secondes !

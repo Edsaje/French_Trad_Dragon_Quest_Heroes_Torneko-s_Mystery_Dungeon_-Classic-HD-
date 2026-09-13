@@ -1,4 +1,4 @@
-# Guide Steam & Bilan de Traduction 100% — Patch Français v1.0
+# Guide Steam & Bilan de Traduction 100% — Patch Français v1.1.0
 *Dragon Quest Heroes: Torneko's Mystery Dungeon -Classic HD-*
 
 ---
@@ -49,10 +49,10 @@ Le jeu n'étant paru qu'en japonais et en anglais, ce projet bénévole réalis�
 
 [hr][/hr]
 
-[h1]📥 Téléchargement du Patch FR v1.0[/h1]
+[h1]📥 Téléchargement du Patch FR v1.1.0[/h1]
 
 Téléchargez l'archive complète prête à l'emploi :
-👉 [url=https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-/raw/main/patch/TornekosMysteryDungeon-Windows_Patch_FR_v1.0.zip][b]Télécharger le Patch Français v1.0 (Archive ZIP avec Installateur)[/b][/url]
+👉 [url=https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-/raw/main/patch/TornekosMysteryDungeon-Windows_Patch_FR_v1.1.0.zip][b]Télécharger le Patch Français v1.1.0 (Archive ZIP avec Installateur)[/b][/url]
 👉 [url=https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-][b]Consulter le Dépôt GitHub Officiel[/b][/url]
 
 [hr][/hr]
@@ -61,7 +61,7 @@ Téléchargez l'archive complète prête à l'emploi :
 
 [h2]Méthode 1 : Installation automatique en 1 clic (Recommandé)[/h2]
 [olist]
-[*] Téléchargez l'archive [b]TornekosMysteryDungeon-Windows_Patch_FR_v1.0.zip[/b].
+[*] Téléchargez l'archive [b]TornekosMysteryDungeon-Windows_Patch_FR_v1.1.0.zip[/b].
 [*] Extrayez son contenu dans un dossier quelconque.
 [*] Double-cliquez sur [b]installer.bat[/b].
 [*] L'installateur détecte votre jeu Steam, sauvegarde vos fichiers originaux et installe le patch en 5 secondes !
