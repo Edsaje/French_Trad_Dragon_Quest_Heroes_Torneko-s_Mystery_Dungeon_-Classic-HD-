@@ -275,15 +275,17 @@ If you translate this string into another language without updating the internal
    python translate_phase1.py
    [/code]
 
-[*] [b]Repack & Encrypt the PAK:[/b]
-   Run:
-   [code]python repack_main_game_pak.py[/code]
-   This script repacks the files with [b]repak[/b], recalculates directory hashes (Fnv64), applies 16-byte padding, and encrypts the primary, PHI, and FDI indices with AES-256-ECB.
+[*] [b]Build the Lightweight Patch PAK (_P.pak):[/b]
+   Instead of redistributing the full 112 MB game PAK, you can generate a clean [b]~100 KB patch file[/b] using Unreal Engine's native patch priority ([b]_P.pak[/b]):
+   [code]python build_patch_pak.py[/code]
+   This script packs only your translated files from [b]mod_staging[/b], calculates directory hashes (Fnv64 seed [b]0x6409933B[/b]), pads, and encrypts the index with AES-256-ECB.
+
+   [b]Note on IoStore:[/b] Although the game uses IoStore ([b].utoc / .ucas[/b]) for engine UAssets, Radec tables are raw loose files residing strictly in the legacy PAK container. Therefore, [b]no .utoc or .ucas files are required[/b]!
 
 [*] [b]Test on PC & Steam Deck:[/b]
-   Copy the resulting [b]TornekosMysteryDungeon-Windows.pak[/b] into your game folder:
+   Simply drop the resulting [b]TornekosMysteryDungeon-Windows_P.pak[/b] into your game directory:
    [code]SteamLibrary/steamapps/common/TornekosMysteryDungeon/TornekosMysteryDungeon/Content/Paks/[/code]
-   Ensure game language is set to [b]English[/b] in the game options. Your translated text will display immediately!
+   The engine mounts it with higher priority over the vanilla game files. Set your in-game language to [b]English[/b], and your translated text displays immediately without touching any original game file!
 [/olist]
 
 ---
