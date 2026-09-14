@@ -282,3 +282,17 @@ We hope this technical documentation helps modding teams around the world bring 
 [/list]
 
 If you have questions or need help adapting the tools for your language, feel free to open an Issue or Discussion on the [url=https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-]GitHub repository[/url]!
+
+---
+
+[h2]Support the Guide 👍⭐🏆[/h2]
+
+If this guide helped you or saved you time in reverse-engineering the game:
+[list]
+[*] [b]Rate Up 👍[/b] – Helps other modders and translators discover this resource.
+[*] [b]Favorite ⭐[/b] – Keep it handy for your translation pipeline.
+[*] [b]Give an Award 🏆[/b] – Always greatly appreciated for the hundreds of hours of reverse-engineering and open-source work!
+[/list]
+
+Happy modding, and long live the Dragon Quest community!
+
