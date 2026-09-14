@@ -27,7 +27,7 @@ The game uses a hybrid architecture:
 
 [h3]Prerequisites:[/h3]
 [list]
-[*] [b]Python 3.10+[/b] (with [code]cryptography[/code] installed: [code]pip install cryptography[/code]).
+[*] [b]Python 3.10+[/b] (with [b]cryptography[/b] installed: [b]pip install cryptography[/b]).
 [*] [b]repak[/b] (an open-source CLI tool for Unreal Engine PAK archives).
 [*] [b]Torneko AES-256 Encryption Key:[/b]
 [code]0xC71FCA6F12BDD06334324F18A52199BDC45A03F23B0935D5641CA4E130449F8F[/code]
@@ -42,7 +42,7 @@ The game uses a hybrid architecture:
 The game's assets reside in:
 [code]TornekosMysteryDungeon/Content/Paks/TornekosMysteryDungeon-Windows.pak[/code]
 
-To extract the archive using [code]repak[/code]:
+To extract the archive using [b]repak[/b]:
 [code]
 repak.exe --aes-key 0xC71FCA6F12BDD06334324F18A52199BDC45A03F23B0935D5641CA4E130449F8F unpack -o extracted_pak TornekosMysteryDungeon-Windows.pak
 [/code]
@@ -163,13 +163,13 @@ def decompress_radec(data: bytes, file_id: int) -> bytes:
 [h3]Layer B: The Gm::Variant AST[/h3]
 Once decompressed, the data is a typed variant tree containing:
 [list]
-[*] [b]Type 0 (Map):[/b] Sequence of [code](key_string, variant_value)[/code].
-[*] [b]Type 1 (List):[/b] Sequence of [code]variant_value[/code].
+[*] [b]Type 0 (Map):[/b] Sequence of [b](key_string, variant_value)[/b].
+[*] [b]Type 1 (List):[/b] Sequence of [b]variant_value[/b].
 [*] [b]Type 3 (Int):[/b] 7-bit Variable-Length Integer (VLQ).
 [*] [b]Type 8 (String):[/b] Length-prefixed string.
 [/list]
 
-Our Python class [code]VariantReader[/code] and [code]VariantWriter[/code] (available in the GitHub repository) can parse this tree into native Python structures and re-serialize it bit-for-bit without corruption.
+Our Python classes [b]VariantReader[/b] and [b]VariantWriter[/b] (available in the GitHub repository) can parse this tree into native Python structures and re-serialize it bit-for-bit without corruption.
 
 ---
 
@@ -177,7 +177,7 @@ Our Python class [code]VariantReader[/code] and [code]VariantWriter[/code] (avai
 
 In Radec tables, translated strings do not use plain UTF-8. They use a proprietary [b]6-bit packing scheme[/b]. Any string starting with the character [b]"|"[/b] is encoded.
 
-Every 3 raw bytes are packed into 4 printable ASCII characters (offset by [code]0x28[/code], with [code]0x5C[/code] mapped to [code]0x7A[/code]).
+Every 3 raw bytes are packed into 4 printable ASCII characters (offset by [b]0x28[/b], with [b]0x5C[/b] mapped to [b]0x7A[/b]).
 
 [code]
 def decode_radec(s: str) -> bytes:
@@ -186,8 +186,8 @@ def decode_radec(s: str) -> bytes:
     data = s[1:]
     rdi = int(len(data) * 3 * 0.25)
     out = bytearray()
-    for i in range(rdi):
-        b = ord(data[i])
+    for ch in data[:rdi]:
+        b = ord(ch)
         if b == 0x7A: b = 0x5C
         out.append((b - 0x28) & 0xFF)
     rem = data[rdi:]
@@ -203,28 +203,28 @@ def decode_radec(s: str) -> bytes:
     return bytes(out)
 [/code]
 
-Use the companion [code]encode_radec(raw_bytes)[/code] in our repository when re-encoding your translated strings.
+Use the companion [b]encode_radec(raw_bytes)[/b] in our repository when re-encoding your translated strings.
 
 ---
 
 [h2]6. Critical Pitfalls & How to Avoid Game Crashes[/h2]
 
 [h3]A. Font Atlas Limitation (1-Byte ASCII)[/h3]
-The HD-2D engine renders text using an 8-bit character atlas. [b]Do not output multi-byte UTF-8 accented characters[/b] (like Spanish [i]ñ, á, é[/i] or German [i]ä, ö, ü[/i]) without checking font glyph mappings. Using standard ASCII replacements (or cleaning diacritics via [code]clean_retro_text()[/code]) guarantees clean, glitch-free rendering.
+The HD-2D engine renders text using an 8-bit character atlas. [b]Do not output multi-byte UTF-8 accented characters[/b] (like Spanish [i]ñ, á, é[/i] or German [i]ä, ö, ü[/i]) without checking font glyph mappings. Using standard ASCII replacements (or cleaning diacritics via [b]clean_retro_text()[/b]) guarantees clean, glitch-free rendering.
 
 [h3]B. In-line Bytecode Control Tags (\x02 ... \x03)[/h3]
-The dialogue and combat systems use dynamic formatting tags delimited by byte [code]0x02[/code] (Start) and [code]0x03[/code] (End):
+The dialogue and combat systems use dynamic formatting tags delimited by byte [b]0x02[/b] (Start) and [b]0x03[/b] (End):
 [list]
-[*] [code]\x02\x06\x02p\x03[/code] : Dialogue Box Pause / Wait for player input.
-[*] [code]\x02\x10\x01\x03[/code] : End of Dialogue / Close Message.
-[*] [code]\x02 \x03\xe8\x02\x03[/code] : Numerical value injection (Gold, Turns, Damage).
+[*] [b]\x02\x06\x02p\x03[/b] : Dialogue Box Pause / Wait for player input.
+[*] [b]\x02\x10\x01\x03[/b] : End of Dialogue / Close Message.
+[*] [b]\x02 \x03\xe8\x02\x03[/b] : Numerical value injection (Gold, Turns, Damage).
 [/list]
-[b]WARNING:[/b] You must preserve these tags [b]intact[/b] inside your translated sentences. If a closing [code]\x03[/code] is missing or displaced, the typewriter engine will hang.
+[b]WARNING:[/b] You must preserve these tags [b]intact[/b] inside your translated sentences. If a closing [b]\x03[/b] is missing or displaced, the typewriter engine will hang.
 
 [h3]C. The Infamous "talk_wife_11" Softlock[/h3]
-In the dialogue table ([code]353109016.bin[/code]), entry [b]talk_wife_11[/b] (Tessie's gold tally when Torneko returns from the dungeon) contains hardcoded binary Pascal string length prefixes ([code]\xff\xb9[/code] and [code]\xff\x56[/code]).
+In the dialogue table ([b]353109016.bin[/b]), entry [b]talk_wife_11[/b] (Tessie's gold tally when Torneko returns from the dungeon) contains hardcoded binary Pascal string length prefixes ([b]\xff\xb9[/b] and [b]\xff\x56[/b]).
 If you translate this string into another language without updating the internal byte length offsets, the engine will enter an [b]infinite loop[/b] during shop expansions (game freezes completely with music playing, Alt+F4 unresponsive).
-[b]Recommendation:[/b] Keep [code]talk_wife_11[/code] in English or calibrate its Pascal byte lengths precisely to prevent softlocking players!
+[b]Recommendation:[/b] Keep [b]talk_wife_11[/b] in English or calibrate its Pascal byte lengths precisely to prevent softlocking players!
 
 ---
 
@@ -237,15 +237,15 @@ If you translate this string into another language without updating the internal
 
 [*] [b]Dump Dialogue Chunks to JSON:[/b]
    Dialogue entries are divided into 4 chunks:
-   [code]tools/dialogue_chunk_1_fr.json[/code] to [code]tools/dialogue_chunk_4_fr.json[/code].
-   Translate the strings into your target language (Spanish, German, etc.) while keeping control tags ([code]\x02...\x03[/code]) intact.
+   [b]tools/dialogue_chunk_1_fr.json[/b] to [b]tools/dialogue_chunk_4_fr.json[/b].
+   Translate the strings into your target language (Spanish, German, etc.) while keeping control tags intact.
 
 [*] [b]Translate Database Bins:[/b]
-   Edit [code]tools/build_french_mod.py[/code] (or copy it to [code]build_spanish_mod.py[/code]) to input your language's dictionary for:
+   Edit [b]tools/build_french_mod.py[/b] (or copy it to [b]build_spanish_mod.py[/b]) to input your language's dictionary for:
    [list]
-   [*] UI strings ([code]FRENCH_UI[/code])
-   [*] Item names ([code]ITEM_TRANSLATIONS[/code])
-   [*] Monster names ([code]MONSTER_TRANSLATIONS[/code])
+   [*] UI strings ([b]FRENCH_UI[/b])
+   [*] Item names ([b]ITEM_TRANSLATIONS[/b])
+   [*] Monster names ([b]MONSTER_TRANSLATIONS[/b])
    [/list]
 
 [*] [b]Build the Translated Binaries:[/b]
@@ -261,10 +261,10 @@ If you translate this string into another language without updating the internal
 [*] [b]Repack & Encrypt the PAK:[/b]
    Run:
    [code]python repack_main_game_pak.py[/code]
-   This script repacks the files with [code]repak[/code], recalculates directory hashes (Fnv64), applies 16-byte padding, and encrypts the primary, PHI, and FDI indices with AES-256-ECB.
+   This script repacks the files with [b]repak[/b], recalculates directory hashes (Fnv64), applies 16-byte padding, and encrypts the primary, PHI, and FDI indices with AES-256-ECB.
 
 [*] [b]Test on PC & Steam Deck:[/b]
-   Copy the resulting [code]TornekosMysteryDungeon-Windows.pak[/code] into your game folder:
+   Copy the resulting [b]TornekosMysteryDungeon-Windows.pak[/b] into your game folder:
    [code]SteamLibrary/steamapps/common/TornekosMysteryDungeon/TornekosMysteryDungeon/Content/Paks/[/code]
    Ensure game language is set to [b]English[/b] in the game options. Your translated text will display immediately!
 [/olist]
