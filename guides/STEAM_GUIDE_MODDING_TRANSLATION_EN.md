@@ -169,7 +169,20 @@ Once decompressed, the data is a typed variant tree containing:
 [*] [b]Type 8 (String):[/b] Length-prefixed string.
 [/list]
 
-Our Python classes [b]VariantReader[/b] and [b]VariantWriter[/b] (available in the GitHub repository) can parse this tree into native Python structures and re-serialize it bit-for-bit without corruption.
+Our standalone Python tool [b]tools/radec_codec.py[/b] provides the [b]VariantReader[/b] and [b]VariantWriter[/b] classes to parse this tree into native Python structures and re-serialize it bit-for-bit without corruption:
+
+[code]
+from radec_codec import VariantReader, VariantWriter
+
+# Parse decompressed Gm::Variant bytes
+reader = VariantReader(decompressed_bytes)
+ast = reader.parse()
+
+# Re-serialize back to binary bit-for-bit
+writer = VariantWriter()
+writer.write(ast)
+new_bytes = bytes(writer.buf)
+[/code]
 
 ---
 
@@ -203,7 +216,11 @@ def decode_radec(s: str) -> bytes:
     return bytes(out)
 [/code]
 
-Use the companion [b]encode_radec(raw_bytes)[/b] in our repository when re-encoding your translated strings.
+Use the companion [b]encode_radec(raw_bytes)[/b] function in [b]tools/radec_codec.py[/b] when re-encoding your translated strings:
+
+[code]
+from radec_codec import encode_radec, decode_radec
+[/code]
 
 ---
 

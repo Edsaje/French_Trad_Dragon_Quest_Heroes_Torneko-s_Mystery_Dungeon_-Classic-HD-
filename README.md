@@ -97,10 +97,14 @@ La rétro-ingénierie du moteur Radec de Square Enix, le décodage des binaires 
 
 Ce patch repose sur un pipeline de reverse-engineering complet pour le moteur hybride Unreal Engine 5 / Radec :
 - **Déchiffrement / Re-chiffrement AES-256-ECB** des index du conteneur PAK officiel V11 (`path_hash_seed: 0x6409933B`).
-- **Décodeur / Encodeur binaire Square Enix Variant (`Gm::Variant`)** pour les tables de données Radec (`Content/Anya/Radec/`).
-- **Codec 6-bit Base64 Radec** avec préservation stricte des codes de contrôle dynamiques (`\x02...\x03`).
-- **Typographie rétro ASCII propre** adaptée à l'atlas bitmap 1-octet du moteur pour une lisibilité parfaite sans glitch.
-- Tous les scripts Python du pipeline sont disponibles dans le dossier [`tools/`](tools/).
+- **Outil autonome [`tools/radec_codec.py`](tools/radec_codec.py) :**
+  - Classes `VariantReader` et `VariantWriter` pour parser et sérialiser l'AST binaire `Gm::Variant`.
+  - Fonctions `unscramble` / `scramble` (cipher par File ID 32-bit).
+  - Fonctions `decompress_radec` / `compress_and_scramble` (Zlib + Cipher).
+  - Codec 6-bit `decode_radec` / `encode_radec` (chaînes préfixées par `|`).
+  - Fonction `clean_retro_text` pour l'adaptation à la police rétro 1-octet sans glitch.
+- **Guide complet pour les moddeurs internationaux :** Voir [`guides/STEAM_GUIDE_MODDING_TRANSLATION_EN.md`](guides/STEAM_GUIDE_MODDING_TRANSLATION_EN.md).
+- Tous les scripts Python d'assemblage et de packaging sont disponibles dans le dossier [`tools/`](tools/).
 
 ---
 

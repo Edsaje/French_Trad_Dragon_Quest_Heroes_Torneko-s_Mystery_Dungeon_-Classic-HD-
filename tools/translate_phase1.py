@@ -1,57 +1,20 @@
 import os
 import struct
 import zlib
-from build_french_mod import (
+from radec_codec import (
     clean_retro_text,
     scramble,
     compress_and_scramble,
     VariantReader,
     VariantWriter,
+    decode_radec,
+    encode_radec
+)
+from build_french_mod import (
     SCRATCH_DIR,
     DECOMP_DIR,
     MOD_STAGING
 )
-
-def decode_radec(s: str) -> bytes:
-    if not s.startswith('|'):
-        return s.encode('latin1')
-    data = s[1:]
-    rdi = int(len(data) * 3 * 0.25)
-    out = bytearray()
-    for i in range(rdi):
-        b = ord(data[i])
-        if b == 0x7A: b = 0x5C
-        out.append((b - 0x28) & 0xFF)
-    rem = data[rdi:]
-    rdx = 0
-    for ch in rem:
-        b = ord(ch)
-        if b == 0x7A: b = 0x5C
-        v = (b - 0x28) & 0xFF
-        if rdx < len(out):     out[rdx]     |= ((v & 0x30) << 2) & 0xFF
-        if rdx + 1 < len(out): out[rdx + 1] |= ((v & 0x0C) << 4) & 0xFF
-        if rdx + 2 < len(out): out[rdx + 2] |= ((v & 0x03) << 6) & 0xFF
-        rdx += 3
-    return bytes(out)
-
-def encode_radec(raw: bytes) -> str:
-    part1, part2 = [], []
-    for i in range(0, len(raw), 3):
-        chunk = raw[i:i+3]
-        b0 = chunk[0]
-        b1 = chunk[1] if len(chunk) > 1 else 0
-        b2 = chunk[2] if len(chunk) > 2 else 0
-        for b in chunk:
-            c = (b & 0x3F) + 0x28
-            if c == 0x5C: c = 0x7A
-            part1.append(chr(c))
-        t0 = (b0 >> 6) & 0x03
-        t1 = (b1 >> 6) & 0x03
-        t2 = (b2 >> 6) & 0x03
-        c2 = ((t0 << 4) | (t1 << 2) | t2) + 0x28
-        if c2 == 0x5C: c2 = 0x7A
-        part2.append(chr(c2))
-    return '|' + ''.join(part1) + ''.join(part2)
 
 def stage_file(file_id: str, new_bin: bytes):
     dest_dir = os.path.join(MOD_STAGING, "TornekosMysteryDungeon", "Content", "Anya", "Radec")

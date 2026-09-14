@@ -11,136 +11,15 @@ MOD_STAGING = os.path.join(SCRATCH_DIR, "mod_staging")
 REPAK_EXE = os.path.join(SCRATCH_DIR, "repak.exe")
 GAME_PAKS_DIR = r"E:\SteamLibrary\steamapps\common\TornekosMysteryDungeon\TornekosMysteryDungeon\Content\Paks"
 
-def clean_retro_text(s: str) -> str:
-    """Normalize text to clean ASCII so that the game engine's utf8len and
-    the 1-byte enSGOZ font atlas render every character without blanks or bugs."""
-    has_var_tag = ('\x02)\x03\xeb\x0b\x03' in s)
-    replacements = {
-        'é': 'e', 'è': 'e', 'ê': 'e', 'ë': 'e',
-        'É': 'E', 'È': 'E', 'Ê': 'E', 'Ë': 'E',
-        'à': 'a', 'â': 'a', 'ä': 'a',
-        'À': 'A', 'Â': 'A', 'Ä': 'A',
-        'ç': 'c', 'Ç': 'C',
-        'î': 'i', 'ï': 'i',
-        'Î': 'I', 'Ï': 'I',
-        'ô': 'o', 'ö': 'o',
-        'Ô': 'O', 'Ö': 'O',
-        'ù': 'u', 'û': 'u', 'ü': 'u',
-        'Ù': 'U', 'Û': 'U', 'Ü': 'U',
-        '’': "'", '«': '"', '»': '"', '–': '-', '—': '-'
-    }
-    for k, v in replacements.items():
-        s = s.replace(k, v)
-    if has_var_tag:
-        s = s.replace('\x02)\x03e\x0b\x03', '\x02)\x03\xeb\x0b\x03')
-    return s
-
-class VariantReader:
-    def __init__(self, data):
-        self.data = data
-        self.pos = 0
-
-    def read_byte(self):
-        b = self.data[self.pos]
-        self.pos += 1
-        return b
-
-    def read_count(self):
-        b0 = self.read_byte()
-        if b0 & 0x80:
-            b1 = self.read_byte()
-            return ((b1 << 7) | (b0 & 0x7F))
-        return b0
-
-    def read_str(self):
-        length = self.read_count()
-        s = self.data[self.pos : self.pos + length].decode('utf-8', errors='replace')
-        self.pos += length
-        return s
-
-    def parse(self):
-        t = self.read_byte()
-        if t == 0: # Map
-            count = self.read_count()
-            return ('map', [(self.read_str(), self.parse()) for _ in range(count)])
-        elif t == 1: # List
-            count = self.read_count()
-            return ('list', [self.parse() for _ in range(count)])
-        elif t == 3: # Int
-            b0 = self.read_byte()
-            if b0 & 0x80:
-                b1 = self.read_byte()
-                return ('int', ((b1 << 7) | (b0 & 0x7F)))
-            return ('int', b0)
-        elif t == 8: # String
-            return ('str', self.read_str())
-        else:
-            raise ValueError(f"Unknown variant type {t} at {hex(self.pos)}")
-
-class VariantWriter:
-    def __init__(self):
-        self.buf = bytearray()
-
-    def write_byte(self, b):
-        self.buf.append(b & 0xFF)
-
-    def write_count(self, n):
-        if n >= 0x80:
-            self.write_byte((n & 0x7F) | 0x80)
-            self.write_byte((n >> 7) & 0xFF)
-        else:
-            self.write_byte(n)
-
-    def write_str(self, s):
-        raw = s.encode('utf-8')
-        self.write_count(len(raw))
-        self.buf.extend(raw)
-
-    def write(self, val):
-        t, data = val
-        if t == 'map':
-            self.write_byte(0)
-            self.write_count(len(data))
-            for k, v in data:
-                self.write_str(k)
-                self.write(v)
-        elif t == 'list':
-            self.write_byte(1)
-            self.write_count(len(data))
-            for item in data:
-                self.write(item)
-        elif t == 'int':
-            self.write_byte(3)
-            self.write_count(data)
-        elif t == 'str':
-            self.write_byte(8)
-            self.write_str(data)
-
-def scramble(data: bytes, key: int) -> bytes:
-    buf = bytearray(data)
-    esi = len(buf) & 0xFFFFFFFC
-    ebx = (~key) & 0xFFFFFFFF
-    if ebx != 0xFFFFFFFF:
-        ebx_signed = ebx if ebx < 0x80000000 else ebx - 0x100000000
-        eax = (ebx_signed >> 2) & 0x3F
-        eax = (eax + 0x200) & 0xFFFFFFFC
-        if esi > eax:
-            esi = eax
-    num_words = esi >> 2
-    edi = 0
-    for i in range(num_words):
-        val = struct.unpack('<I', buf[i*4 : (i+1)*4])[0]
-        ebx = (ebx ^ val) & 0xFFFFFFFF
-        buf[i*4 : (i+1)*4] = struct.pack('<I', ebx)
-        ecx = ebx & 3
-        ebx = ((ebx << ecx) + edi) & 0xFFFFFFFF
-        edi += 1
-    return bytes(buf)
-
-def compress_and_scramble(uncompressed_data: bytes, key: int) -> bytes:
-    comp = zlib.compress(uncompressed_data, level=9)
-    payload = struct.pack('<I', len(uncompressed_data)) + comp
-    return scramble(payload, key)
+from radec_codec import (
+    clean_retro_text,
+    VariantReader,
+    VariantWriter,
+    scramble,
+    compress_and_scramble,
+    decode_radec,
+    encode_radec
+)
 
 # Calibrated UI translations: compact, elegant, fitting the retro layout boxes
 FRENCH_UI = {
