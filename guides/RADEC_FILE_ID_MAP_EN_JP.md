@@ -63,12 +63,19 @@ writer.write(ast_tree)
 new_binary = bytes(writer.buf)
 ```
 
-#### 4. Packaging as a Lightweight Patch (`_P.pak`)
-When translating either language, you do **not** need to touch IoStore (`.utoc` / `.ucas`). Radec files are loose files inside the legacy PAK container. Repacking into a `_P.pak` (e.g. `TornekosMysteryDungeon-Windows_P.pak`) mounts with higher priority over the base 112 MB file:
+#### 4. Packaging as a Lightweight IoStore Patch Trio (`_P.pak` + `.utoc` + `.ucas`)
+Because Torneko uses Unreal Engine's **IoStore** container dispatcher, dropping a loose `.pak` file alone will be ignored by the engine at startup. To mount your mod properly without replacing the 112 MB base game file, you must provide the **IoStore trio**:
+1. `YourMod_P.pak` (~100 KB): Contains your translated Radec binaries, encrypted with the game's AES-256 key (`0xC71FCA6F...`).
+2. `YourMod_P.utoc` (144 bytes): Minimal IoStore Table of Contents header (EntryCount = 0) with a unique Container ID.
+3. `YourMod_P.ucas` (0 bytes): Empty dummy container file.
+
+When these 3 files are dropped into `Content/Paks/`, Unreal Engine's `FIoDispatcher` validates the container and `FPakPlatformFile` mounts the companion `.pak` with patch priority over the base game files.
+
+You can generate all three files automatically using:
 ```bash
 python tools/build_patch_pak.py
 ```
-This produces a standalone patch of only **~100 KB**.
+This produces a standalone, non-destructive patch of only **~100 KB**.
 
 ---
 *Created by Hibouxe (https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-)*
