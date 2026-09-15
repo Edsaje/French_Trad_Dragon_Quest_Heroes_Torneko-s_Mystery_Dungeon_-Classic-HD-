@@ -1,21 +1,14 @@
-# Guide Steam Communautaire — Traduction Française Intégrale 100%
-*Dragon Quest Heroes: Torneko's Mystery Dungeon -Classic HD-*
-
-### 📋 Version Steam BBCode (Prête à copier-coller dans votre Guide Steam)
-
 [h1]🗡️ [100% Traduit] Traduction Française Intégrale - Dragon Quest : Torneko [PC / Steam Deck / Linux][/h1]
 
-[b]Oyé marchands et aventuriers ! Le patch de fan-traduction française intégrale (100%) pour [i]Dragon Quest Heroes: Torneko's Mystery Dungeon -Classic HD-[/i] passe en version 1.2.0 sur PC, Steam Deck et Linux ![/b]
+[b]Oyé marchands et aventuriers ! Le patch de fan-traduction française intégrale (100%) pour [i]Dragon Quest Heroes: Torneko's Mystery Dungeon -Classic HD-[/i] est disponible en version 1.2.0 sur PC, Steam Deck et Linux ![/b]
 
 Le jeu officiel n'étant paru qu'en japonais et en anglais, ce projet bénévole et passionné vous permet de vivre l'aventure de Torneko entièrement en français, avec la nomenclature officielle de la saga [i]Dragon Quest[/i] !
 
 [b]Nouveautés majeures de la version 1.2.0 :[/b]
-Le mod utilise désormais le format de patch officiel Unreal Engine ([b]_P.pak[/b]) !
 [list]
-[*] [b]Poids plume (~100 Ko au lieu de 90 Mo) :[/b] Téléchargement instantané.
-[*] [b]100% Non-destructif :[/b] Ne remplace plus JAMAIS le fichier de base officiel du jeu (112 Mo).
-[*] [b]Multi-modding sans conflit :[/b] Totalement compatible avec d'autres mods sans risque d'écrasement.
-[*] [b]Désinstallation en 1 seconde :[/b] Supprimez simplement le petit fichier patch pour retrouver immédiatement la version officielle.
+[*] [b]Installateur automatisé avec sauvegarde de secours :[/b] installer.bat sauvegarde automatiquement votre fichier original et installe le patch en 3 secondes.
+[*] [b]Restauration facile en 1 clic :[/b] Vous pouvez revenir à la version officielle à tout moment sans réinstaller le jeu.
+[*] [b]Outils de modding & cartographie complète :[/b] Mise à disposition du codec radec autonome et de la table complète des IDs pour toute la communauté.
 [/list]
 
 ---
@@ -71,9 +64,9 @@ Le mod utilise désormais le format de patch officiel Unreal Engine ([b]_P.pak[/
 
 [h1]🎮 Télécharger le Patch FR v1.2.0[/h1]
 
-L'archive complète prête à l'emploi (contenant le patch non-destructif, l'installateur et le guide) est disponible en téléchargement direct :
+L'archive complète prête à l'emploi (contenant la traduction, l'installateur automatique et la notice) est disponible en téléchargement direct :
 
-👉 [b][url=https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-/raw/main/patch/TornekosMysteryDungeon-Windows_Patch_FR_v1.2.0.zip]Cliquez ici pour télécharger le Patch FR v1.2.0 (Archive ZIP ~100 Ko)[/url][/b]
+👉 [b][url=https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-/raw/main/patch/TornekosMysteryDungeon-Windows_Patch_FR_v1.2.0.zip]Cliquez ici pour télécharger le Patch FR v1.2.0 (Archive ZIP complète)[/url][/b]
 
 👉 [b][url=https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-]Consulter le Dépôt GitHub Officiel du Projet[/url][/b]
 
@@ -86,25 +79,29 @@ L'archive complète prête à l'emploi (contenant le patch non-destructif, l'ins
 [*] Téléchargez l'archive [b]TornekosMysteryDungeon-Windows_Patch_FR_v1.2.0.zip[/b] ci-dessus.
 [*] Décompressez l'archive sur votre ordinateur.
 [*] Double-cliquez sur le fichier [b]installer.bat[/b] et tapez [b]1[/b].
-[*] L'installateur détecte automatiquement votre jeu Steam et installe le patch en 1 seconde !
+[*] L'installateur détecte automatiquement votre jeu Steam, sauvegarde vos fichiers originaux et installe le patch en 3 secondes !
 [*] Lancez le jeu via Steam en vous assurant que la langue est sur [b]Anglais[/b] dans les options (le jeu sera intégralement en français).
 [/olist]
 
-[h2]Méthode 2 : Installation manuelle par Glisser-Déposer (10 secondes)[/h2]
+[h2]Méthode 2 : Installation manuelle (30 secondes)[/h2]
 [olist]
 [*] Ouvrez votre bibliothèque Steam.
 [*] Clic droit sur le jeu > [b]Gérer[/b] > [b]Parcourir les fichiers locaux[/b].
 [*] Rendez-vous dans le dossier :
 [code]TornekosMysteryDungeon \ Content \ Paks[/code]
-[*] Glissez-y simplement le fichier [b]TornekosMysteryDungeon-Windows_P.pak[/b] extrait de l'archive.
+[*] (Optionnel) Renommez le fichier [b]TornekosMysteryDungeon-Windows.pak[/b] en [b]TornekosMysteryDungeon-Windows.pak.backup[/b].
+[*] Copiez le fichier [b]TornekosMysteryDungeon-Windows.pak[/b] extrait de l'archive dans ce dossier.
 [*] Lancez le jeu (avec la langue du jeu réglée sur [b]Anglais[/b] dans les paramètres).
 [/olist]
 
 [h2]🎮 Sur Steam Deck (SteamOS) & Linux :[/h2]
-Passez en [b]Mode Bureau[/b], ouvrez le dossier du jeu via Steam (*Parcourir les fichiers locaux*), déposez le fichier [b]TornekosMysteryDungeon-Windows_P.pak[/b] dans [code]TornekosMysteryDungeon/Content/Paks/[/code], puis repassez en [b]Mode Jeu[/b] !
+Passez en [b]Mode Bureau[/b], ouvrez le dossier du jeu via Steam (*Parcourir les fichiers locaux*), remplacez le fichier [b]TornekosMysteryDungeon-Windows.pak[/b] dans [code]TornekosMysteryDungeon/Content/Paks/[/code] par celui extrait de l'archive, puis repassez en [b]Mode Jeu[/b] !
 
-[h2]Désinstallation facile :[/h2]
-Supprimez simplement le fichier [b]TornekosMysteryDungeon-Windows_P.pak[/b] du dossier [code]Content/Paks/[/code] (ou lancez [b]installer.bat[/b] et tapez [b]2[/b]). Votre jeu redevient instantanément la version officielle sans aucun re-téléchargement Steam !
+[h2]Désinstallation :[/h2]
+[list]
+[*] Si vous avez utilisé [b]installer.bat[/b], lancez-le simplement et tapez [b]2[/b] pour restaurer votre fichier officiel d'origine.
+[*] Ou via Steam : Clic droit sur le jeu > [b]Propriétés[/b] > [b]Fichiers installés[/b] > [b]Vérifier l'intégrité des fichiers du jeu[/b].
+[/list]
 
 ---
 
