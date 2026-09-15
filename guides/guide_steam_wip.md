@@ -6,9 +6,10 @@ Le jeu officiel n'étant paru qu'en japonais et en anglais, ce projet bénévole
 
 [b]Nouveautés majeures de la version 1.2.0 :[/b]
 [list]
-[*] [b]Installateur automatisé avec sauvegarde de secours :[/b] installer.bat sauvegarde automatiquement votre fichier original et installe le patch en 3 secondes.
-[*] [b]Restauration facile en 1 clic :[/b] Vous pouvez revenir à la version officielle à tout moment sans réinstaller le jeu.
-[*] [b]Outils de modding & cartographie complète :[/b] Mise à disposition du codec radec autonome et de la table complète des IDs pour toute la communauté.
+[*] [b]Format de patch natif Unreal Engine IoStore :[/b] Le patch ne remplace plus JAMAIS le gros fichier de 112 Mo officiel du jeu. Il s'applique en toute sécurité par-dessus.
+[*] [b]Poids plume (~100 Ko au lieu de 91 Mo) :[/b] Téléchargement instantané pour tous les joueurs !
+[*] [b]Compatibilité multi-mods totale :[/b] Peut cohabiter sans conflit avec d'autres mods (ex. le mod de police rétro pixel de Beardmo).
+[*] [b]Désinstallation en 1 seconde :[/b] Retirez simplement les fichiers patch pour retrouver votre jeu officiel d'origine sans re-téléchargement.
 [/list]
 
 ---
@@ -64,9 +65,9 @@ Le jeu officiel n'étant paru qu'en japonais et en anglais, ce projet bénévole
 
 [h1]🎮 Télécharger le Patch FR v1.2.0[/h1]
 
-L'archive complète prête à l'emploi (contenant la traduction, l'installateur automatique et la notice) est disponible en téléchargement direct :
+L'archive complète prête à l'emploi (contenant le patch non-destructif, l'installateur automatique et la notice) est disponible en téléchargement direct :
 
-👉 [b][url=https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-/raw/main/patch/TornekosMysteryDungeon-Windows_Patch_FR_v1.2.0.zip]Cliquez ici pour télécharger le Patch FR v1.2.0 (Archive ZIP complète)[/url][/b]
+👉 [b][url=https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-/raw/main/patch/HibouxeDonjonMystere_FR_v1.2.0.zip]Cliquez ici pour télécharger le Patch FR v1.2.0 (Archive ZIP ~100 Ko)[/url][/b]
 
 👉 [b][url=https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-]Consulter le Dépôt GitHub Officiel du Projet[/url][/b]
 
@@ -76,31 +77,33 @@ L'archive complète prête à l'emploi (contenant la traduction, l'installateur 
 
 [h2]Méthode 1 : Installation automatique en 1 clic (Recommandé - Windows)[/h2]
 [olist]
-[*] Téléchargez l'archive [b]TornekosMysteryDungeon-Windows_Patch_FR_v1.2.0.zip[/b] ci-dessus.
+[*] Téléchargez l'archive [b]HibouxeDonjonMystere_FR_v1.2.0.zip[/b] ci-dessus (~100 Ko).
 [*] Décompressez l'archive sur votre ordinateur.
 [*] Double-cliquez sur le fichier [b]installer.bat[/b] et tapez [b]1[/b].
-[*] L'installateur détecte automatiquement votre jeu Steam, sauvegarde vos fichiers originaux et installe le patch en 3 secondes !
+[*] L'installateur détecte automatiquement votre jeu Steam et installe le patch en 1 seconde !
 [*] Lancez le jeu via Steam en vous assurant que la langue est sur [b]Anglais[/b] dans les options (le jeu sera intégralement en français).
 [/olist]
 
-[h2]Méthode 2 : Installation manuelle (30 secondes)[/h2]
+[h2]Méthode 2 : Installation manuelle par Glisser-Déposer (10 secondes)[/h2]
 [olist]
 [*] Ouvrez votre bibliothèque Steam.
 [*] Clic droit sur le jeu > [b]Gérer[/b] > [b]Parcourir les fichiers locaux[/b].
 [*] Rendez-vous dans le dossier :
 [code]TornekosMysteryDungeon \ Content \ Paks[/code]
-[*] (Optionnel) Renommez le fichier [b]TornekosMysteryDungeon-Windows.pak[/b] en [b]TornekosMysteryDungeon-Windows.pak.backup[/b].
-[*] Copiez le fichier [b]TornekosMysteryDungeon-Windows.pak[/b] extrait de l'archive dans ce dossier.
+[*] Glissez-y simplement les 3 fichiers extraits de l'archive :
+- [b]HibouxeDonjonMystere_FR_P.pak[/b]
+- [b]HibouxeDonjonMystere_FR_P.utoc[/b]
+- [b]HibouxeDonjonMystere_FR_P.ucas[/b]
 [*] Lancez le jeu (avec la langue du jeu réglée sur [b]Anglais[/b] dans les paramètres).
 [/olist]
 
 [h2]🎮 Sur Steam Deck (SteamOS) & Linux :[/h2]
-Passez en [b]Mode Bureau[/b], ouvrez le dossier du jeu via Steam (*Parcourir les fichiers locaux*), remplacez le fichier [b]TornekosMysteryDungeon-Windows.pak[/b] dans [code]TornekosMysteryDungeon/Content/Paks/[/code] par celui extrait de l'archive, puis repassez en [b]Mode Jeu[/b] !
+Passez en [b]Mode Bureau[/b], ouvrez le dossier du jeu via Steam (*Parcourir les fichiers locaux*), déposez les 3 fichiers [b]HibouxeDonjonMystere_FR_P.*[/b] dans [code]TornekosMysteryDungeon/Content/Paks/[/code], puis repassez en [b]Mode Jeu[/b] !
 
-[h2]Désinstallation :[/h2]
+[h2]Désinstallation facile :[/h2]
 [list]
-[*] Si vous avez utilisé [b]installer.bat[/b], lancez-le simplement et tapez [b]2[/b] pour restaurer votre fichier officiel d'origine.
-[*] Ou via Steam : Clic droit sur le jeu > [b]Propriétés[/b] > [b]Fichiers installés[/b] > [b]Vérifier l'intégrité des fichiers du jeu[/b].
+[*] Supprimez simplement les 3 fichiers [b]HibouxeDonjonMystere_FR_P.*[/b] du dossier [code]Content/Paks/[/code] (ou lancez [b]installer.bat[/b] et tapez [b]2[/b]).
+[*] Votre jeu redevient instantanément officiel sans aucun re-téléchargement Steam !
 [/list]
 
 ---

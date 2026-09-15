@@ -1,0 +1,50 @@
+=======================================================================
+   Dragon Quest Heroes: Torneko's Mystery Dungeon -Classic HD-
+   Patch de Traduction Française Intégrale v1.2.0 - Par Hibouxe
+=======================================================================
+
+Ce patch permet de jouer intégralement en français à Torneko sur PC,
+Steam Deck et Linux.
+
+NOUVEAUTÉ v1.2.0 (Patch Non-Destructif & Multi-Mods) :
+Ce patch n'écrase PAS le fichier officiel de 112 Mo du jeu ! Il utilise
+le système officiel de patchs d'Unreal Engine (_P.pak) et s'applique
+directement par-dessus en toute sécurité.
+
+-----------------------------------------------------------------------
+INSTALLATION FACILE
+-----------------------------------------------------------------------
+
+MÉTHODE 1 (Automatique - Recommandé) :
+1. Décompressez tous les fichiers de ce ZIP dans un dossier.
+2. Double-cliquez sur "installer.bat" et tapez [1].
+3. L'installateur détecte votre jeu Steam et installe le patch en 1 seconde !
+4. Lancez le jeu via Steam en vous assurant que la langue est configurée
+   sur ANGLAIS dans les options (le jeu sera directement en français).
+
+MÉTHODE 2 (Manuelle - Glisser-Déposer) :
+1. Sur Steam, faites Clic droit sur le jeu > Gérer > Parcourir les fichiers locaux.
+2. Allez dans : TornekosMysteryDungeon / Content / Paks /
+3. Copiez-y simplement ces 3 fichiers extraits du ZIP :
+   - HibouxeDonjonMystere_FR_P.pak
+   - HibouxeDonjonMystere_FR_P.utoc
+   - HibouxeDonjonMystere_FR_P.ucas
+4. Lancez le jeu avec la langue en ANGLAIS. Bon jeu !
+
+SUR STEAM DECK (SteamOS) & LINUX :
+Passez en Mode Bureau, copiez les 3 fichiers ci-dessus dans :
+TornekosMysteryDungeon/Content/Paks/
+Puis repassez en Mode Jeu !
+
+-----------------------------------------------------------------------
+DÉSINSTALLATION
+-----------------------------------------------------------------------
+- Soit lancez "installer.bat" et tapez [2].
+- Soit supprimez manuellement les 3 fichiers HibouxeDonjonMystere_FR_P.*
+  du dossier Content/Paks/.
+
+Votre jeu redevient instantanément la version officielle d'origine sans
+avoir besoin de re-télécharger quoi que ce soit sur Steam !
+
+Retrouvez nos projets et guides vidéo sur YouTube : @Hibouxe
+Soutenir le travail bénévole : https://paypal.me/Hibouxe
