@@ -9,10 +9,10 @@ When Square Enix released [i]Dragon Quest Heroes: Torneko's Mystery Dungeon -Cla
 
 To bring the game to the French community, we reverse-engineered the engine, decoded its proprietary binary file formats, and developed an automated open-source translation pipeline. 
 
-This guide is designed for modders and translators who want to localize Torneko into their own language. Everything you need—tools, file specifications, encryption keys, and pitfalls to avoid—is documented below.
+This guide is designed for modders and translators who want to localize Torneko into their own language. Everything you need—tools, file specifications, encryption keys, complete English/Japanese database mappings, and pitfalls to avoid—is documented below.
 
 [b]Open-Source Repository & Python Tools:[/b]
-[url=https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-]GitHub: Torneko Localization Pipeline[/url]
+👉 [url=https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-]GitHub: Torneko Localization Pipeline & Radec Codec[/url]
 
 ---
 
@@ -22,12 +22,12 @@ The game uses a hybrid architecture:
 [list]
 [*] [b]Engine Wrapper:[/b] Unreal Engine (Windows x64).
 [*] [b]Core Game Data:[/b] Custom proprietary Chunsoft/Square Enix engine named [b]Radec[/b].
-[*] [b]Archive Container:[/b] Unreal PAK file format version [b]V11[/b] encrypted with [b]AES-256-ECB[/b].
+[*] [b]Archive Container:[/b] Unreal PAK file format version [b]V11[/b] encrypted with [b]AES-256-ECB[/b], combined with an [b]IoStore[/b] container dispatcher (.utoc / .ucas).
 [/list]
 
 [h3]Prerequisites:[/h3]
 [list]
-[*] [b]Python 3.10+[/b] (with [b]cryptography[/b] installed: [b]pip install cryptography[/b]).
+[*] [b]Python 3.10+[/b] (with [b]cryptography[/b] installed: [code]pip install cryptography[/code]).
 [*] [b]repak[/b] (an open-source CLI tool for Unreal Engine PAK archives).
 [*] [b]Torneko AES-256 Encryption Key:[/b]
 [code]0xC71FCA6F12BDD06334324F18A52199BDC45A03F23B0935D5641CA4E130449F8F[/code]
@@ -40,7 +40,7 @@ The game uses a hybrid architecture:
 [h2]2. Unpacking the Game PAK[/h2]
 
 The game's assets reside in:
-[code]TornekosMysteryDungeon/Content/Paks/TornekosMysteryDungeon-Windows.pak[/code]
+[code]TornekosMysteryDungeon / Content / Paks / TornekosMysteryDungeon-Windows.pak[/code]
 
 To extract the archive using [b]repak[/b]:
 [code]
@@ -48,76 +48,106 @@ repak.exe --aes-key 0xC71FCA6F12BDD06334324F18A52199BDC45A03F23B0935D5641CA4E130
 [/code]
 
 All text and game database tables are located in:
-[code]extracted_pak/TornekosMysteryDungeon/Content/Anya/Radec/[/code]
+[code]extracted_pak / TornekosMysteryDungeon / Content / Anya / Radec /[/code]
 
-Notice that the files do not have filenames—they are named using [b]numeric 32-bit hash identifiers[/b].
+Notice that the files do not have standard names—they are stored as [b]numeric 32-bit hash identifiers[/b].
 
 ---
 
-[h2]3. Radec File ID Map (What each file contains)[/h2]
+[h2]3. Radec File ID Map (Complete English ⟷ Japanese Mapping)[/h2]
 
-Here is the complete mapping of all text and data tables in the game:
+Here is the complete reverse-engineered mapping between English and Japanese binary tables in Square Enix's Radec engine:
 
 [table]
 [tr]
-[th]File ID[/th]
-[th]Content Description[/th]
+[th]Content / Database Description[/th]
+[th]English File ID[/th]
+[th]Japanese File ID[/th]
 [th]Size / Entries[/th]
 [/tr]
 [tr]
+[td][b]Story Dialogues, Cutscenes, Village NPCs[/b][/td]
 [td][b]353109016[/b][/td]
-[td]Story Dialogues, Cutscenes, NPC interactions[/td]
+[td][b]247540702[/b][/td]
 [td]544 dialogue entries[/td]
 [/tr]
 [tr]
+[td][b]General UI, Menu Options, Settings[/b][/td]
 [td][b]287453834[/b][/td]
-[td]General UI, Menu options, Button prompts[/td]
-[td]Main interface strings[/td]
+[td][b]332245516[/b][/td]
+[td]252 UI strings[/td]
 [/tr]
 [tr]
+[td][b]Items & Equipment Database (Weapons, Shields, Herbs, Rings)[/b][/td]
 [td][b]1290896954[/b][/td]
-[td]Items & Equipment Database (Weapons, Shields, Herbs, Rings)[/td]
-[td]160 item records[/td]
+[td][b]1255572860[/b][/td]
+[td]160 items[/td]
 [/tr]
 [tr]
+[td][b]Item Descriptions & Lore[/b][/td]
+[td][b]1362871123[/b][/td]
+[td][b]1557199733[/b][/td]
+[td]All 160 item descriptions[/td]
+[/tr]
+[tr]
+[td][b]Item Category Headers (Weapons, Shields, Herbs, Scrolls)[/b][/td]
+[td][b]1537184055[/b][/td]
+[td][b]2142944893[/b][/td]
+[td]8 categories[/td]
+[/tr]
+[tr]
+[td][b]Monster Directory & Bestiary Names[/b][/td]
 [td][b]860534025[/b][/td]
-[td]Monster Directory & Bestiary Names[/td]
+[td][b]2071660299[/b][/td]
 [td]34 monster species[/td]
 [/tr]
 [tr]
-[td][b]1362871123[/b][/td]
-[td]Detailed Item Descriptions & Lore[/td]
-[td]All 160 items described[/td]
+[td][b]Monster Lore & Bestiary Background[/b][/td]
+[td][b]1762117298[/b][/td]
+[td][b]917308820[/b][/td]
+[td]34 species descriptions[/td]
 [/tr]
 [tr]
+[td][b]Dungeon Messages, Combat Log, Status Effects, Traps[/b][/td]
 [td][b]568064241[/b][/td]
-[td]Dungeon Messages, Combat Log, Status Effects, Traps[/td]
+[td][b]37267031[/b][/td]
 [td]294 dungeon events[/td]
 [/tr]
 [tr]
+[td][b]HUD Dynamic Value Labels (Gold, Floor, HP, Stats)[/b][/td]
 [td][b]955749668[/b][/td]
-[td]HUD Dynamic Values (Gold, Floor, HP, Stats labels)[/td]
-[td]On-screen labels[/td]
+[td][b]242190762[/b][/td]
+[td]88 labels[/td]
 [/tr]
 [tr]
+[td][b]System Confirmation Popups (Save, Suspend, Retry)[/b][/td]
 [td][b]464627131[/b][/td]
-[td]System Prompts & Confirmation Popups (Save, Quit, Settings)[/td]
-[td]System dialogues[/td]
+[td][b]1338011025[/b][/td]
+[td]29 prompts[/td]
 [/tr]
 [tr]
+[td][b]Achievement Titles[/b][/td]
+[td][b]1530265350[/b][/td]
+[td][b]1273666140[/b][/td]
+[td]31 feats[/td]
+[/tr]
+[tr]
+[td][b]Achievement Descriptions & Unlock Criteria[/b][/td]
 [td][b]1980620336[/b][/td]
-[td]Records, Feats & Achievements Descriptions[/td]
-[td]33 achievement records[/td]
+[td][b]382436806[/b][/td]
+[td]34 records[/td]
 [/tr]
 [tr]
-[td][b]1537184055[/b][/td]
-[td]Item Category Headers (Swords, Shields, Herbs, Scrolls)[/td]
-[td]Inventory categories[/td]
-[/tr]
-[tr]
+[td][b]Gamepad / Keyboard Tutorial Prompts[/b][/td]
 [td][b]801856052[/b][/td]
-[td]Gamepad / Keyboard Controls & Remapping Labels[/td]
-[td]Control layout[/td]
+[td][b]1076805126[/b][/td]
+[td]14 prompts[/td]
+[/tr]
+[tr]
+[td][b]Debug Menu & Room Names[/b][/td]
+[td][b]8513248[/b][/td]
+[td][i]shared / debug[/i][/td]
+[td]116 strings[/td]
 [/tr]
 [/table]
 
@@ -129,36 +159,6 @@ Each Radec file uses a two-layer protection and serialization structure:
 
 [h3]Layer A: Bitwise Scramble + Zlib Compression[/h3]
 The raw file on disk is obfuscated with a bitwise cipher keyed to its [b]File ID[/b], followed by standard Zlib compression.
-To decompress in Python:
-[code]
-import struct, zlib
-
-def unscramble(data: bytes, key: int) -> bytes:
-    buf = bytearray(data)
-    esi = len(buf) & 0xFFFFFFFC
-    ebx = (~key) & 0xFFFFFFFF
-    if ebx != 0xFFFFFFFF:
-        ebx_signed = ebx if ebx < 0x80000000 else ebx - 0x100000000
-        eax = (ebx_signed >> 2) & 0x3F
-        eax = (eax + 0x200) & 0xFFFFFFFC
-        if esi > eax:
-            esi = eax
-    num_words = esi >> 2
-    edi = 0
-    for i in range(num_words):
-        cipher_val = struct.unpack('<I', buf[i*4 : (i+1)*4])[0]
-        plain_val = (ebx ^ cipher_val) & 0xFFFFFFFF
-        buf[i*4 : (i+1)*4] = struct.pack('<I', plain_val)
-        ecx = cipher_val & 3
-        ebx = ((cipher_val << ecx) + edi) & 0xFFFFFFFF
-        edi += 1
-    return bytes(buf)
-
-def decompress_radec(data: bytes, file_id: int) -> bytes:
-    un = unscramble(data, file_id)
-    decompressed_len = struct.unpack('<I', un[:4])[0]
-    return zlib.decompress(un[4:])
-[/code]
 
 [h3]Layer B: The Gm::Variant AST[/h3]
 Once decompressed, the data is a typed variant tree containing:
@@ -169,57 +169,41 @@ Once decompressed, the data is a typed variant tree containing:
 [*] [b]Type 8 (String):[/b] Length-prefixed string.
 [/list]
 
-Our standalone Python tool [b]tools/radec_codec.py[/b] provides the [b]VariantReader[/b] and [b]VariantWriter[/b] classes to parse this tree into native Python structures and re-serialize it bit-for-bit without corruption:
+[h3]All-in-One CLI: tools/radec_codec.py[/h3]
+To make modding easy, our repository provides an all-in-one command line tool:
 
 [code]
-from radec_codec import VariantReader, VariantWriter
+# 1. Decompress any Radec file to raw AST:
+python tools/radec_codec.py decompress 1290896954 items.raw 1290896954
 
-# Parse decompressed Gm::Variant bytes
-reader = VariantReader(decompressed_bytes)
-ast = reader.parse()
+# 2. Re-compress and scramble back to game format:
+python tools/radec_codec.py compress items_translated.raw 1290896954 1290896954
 
-# Re-serialize back to binary bit-for-bit
-writer = VariantWriter()
-writer.write(ast)
-new_bytes = bytes(writer.buf)
+# 3. Decode 6-bit packed text string:
+python tools/radec_codec.py decode-text "|MVH4IHXZWKPIQVMHNWQ"
+
+# 4. Encode text string to 6-bit Radec format:
+python tools/radec_codec.py encode-text "Potion de soin"
 [/code]
 
 ---
 
 [h2]5. The 6-Bit Text Codec (Why strings start with "|")[/h2]
 
-In Radec tables, translated strings do not use plain UTF-8. They use a proprietary [b]6-bit packing scheme[/b]. Any string starting with the character [b]"|"[/b] is encoded.
+In Radec tables, text strings do not use plain UTF-8. They use a proprietary [b]6-bit packing scheme[/b]. Any string starting with the character [b]"|"[/b] is encoded.
 
 Every 3 raw bytes are packed into 4 printable ASCII characters (offset by [b]0x28[/b], with [b]0x5C[/b] mapped to [b]0x7A[/b]).
 
-[code]
-def decode_radec(s: str) -> bytes:
-    if not s.startswith('|'):
-        return s.encode('latin1')
-    data = s[1:]
-    rdi = int(len(data) * 3 * 0.25)
-    out = bytearray()
-    for ch in data[:rdi]:
-        b = ord(ch)
-        if b == 0x7A: b = 0x5C
-        out.append((b - 0x28) & 0xFF)
-    rem = data[rdi:]
-    rdx = 0
-    for ch in rem:
-        b = ord(ch)
-        if b == 0x7A: b = 0x5C
-        v = (b - 0x28) & 0xFF
-        if rdx < len(out):     out[rdx]     |= ((v & 0x30) << 2) & 0xFF
-        if rdx + 1 < len(out): out[rdx + 1] |= ((v & 0x0C) << 4) & 0xFF
-        if rdx + 2 < len(out): out[rdx + 2] |= ((v & 0x03) << 6) & 0xFF
-        rdx += 3
-    return bytes(out)
-[/code]
-
-Use the companion [b]encode_radec(raw_bytes)[/b] function in [b]tools/radec_codec.py[/b] when re-encoding your translated strings:
+Use the companion [b]encode_radec()[/b] and [b]decode_radec()[/b] functions in [b]tools/radec_codec.py[/b] when converting strings in Python:
 
 [code]
-from radec_codec import encode_radec, decode_radec
+from tools.radec_codec import encode_radec, decode_radec
+
+# Decodes to raw bytes
+raw_bytes = decode_radec("|AW]ZHIL^MVz]ZMH...")
+
+# Encodes raw bytes back to 6-bit pipe string
+encoded_string = encode_radec(b"Your text here")
 [/code]
 
 ---
@@ -227,66 +211,54 @@ from radec_codec import encode_radec, decode_radec
 [h2]6. Critical Pitfalls & How to Avoid Game Crashes[/h2]
 
 [h3]A. Font Atlas Limitation (1-Byte ASCII)[/h3]
-The HD-2D engine renders text using an 8-bit character atlas. [b]Do not output multi-byte UTF-8 accented characters[/b] (like Spanish [i]ñ, á, é[/i] or German [i]ä, ö, ü[/i]) without checking font glyph mappings. Using standard ASCII replacements (or cleaning diacritics via [b]clean_retro_text()[/b]) guarantees clean, glitch-free rendering.
+The default HD-2D font renders text using an 8-bit character atlas. [b]Do not output multi-byte UTF-8 accented characters[/b] (like Spanish [i]ñ, á, é[/i] or German [i]ä, ö, ü[/i]) without verifying the font texture sheet. Using standard ASCII replacements (or cleaning diacritics via [b]clean_retro_text()[/b]) guarantees glitch-free rendering.
 
 [h3]B. In-line Bytecode Control Tags (\x02 ... \x03)[/h3]
 The dialogue and combat systems use dynamic formatting tags delimited by byte [b]0x02[/b] (Start) and [b]0x03[/b] (End):
 [list]
-[*] [b]\x02\x06\x02p\x03[/b] : Dialogue Box Pause / Wait for player input.
-[*] [b]\x02\x10\x01\x03[/b] : End of Dialogue / Close Message.
-[*] [b]\x02 \x03\xe8\x02\x03[/b] : Numerical value injection (Gold, Turns, Damage).
+[*] [b]\x02\x06\x02p\x03[/b] : Dialogue Box Pause / Wait for player button press.
+[*] [b]\x02\x10\x01\x03[/b] : End of Dialogue / Close Message Box.
+[*] [b]\x02 \x03\xe8\x02\x03[/b] : Numerical value injection (Gold, Floor numbers, Damage).
 [/list]
 [b]WARNING:[/b] You must preserve these tags [b]intact[/b] inside your translated sentences. If a closing [b]\x03[/b] is missing or displaced, the typewriter engine will hang.
 
 [h3]C. The Infamous "talk_wife_11" Softlock[/h3]
 In the dialogue table ([b]353109016.bin[/b]), entry [b]talk_wife_11[/b] (Tessie's gold tally when Torneko returns from the dungeon) contains hardcoded binary Pascal string length prefixes ([b]\xff\xb9[/b] and [b]\xff\x56[/b]).
-If you translate this string into another language without updating the internal byte length offsets, the engine will enter an [b]infinite loop[/b] during shop expansions (game freezes completely with music playing, Alt+F4 unresponsive).
+If you translate this string into another language without updating the internal byte length offsets, the engine will enter an [b]infinite loop[/b] during shop expansions (game freezes completely with music playing).
 [b]Recommendation:[/b] Keep [b]talk_wife_11[/b] in English or calibrate its Pascal byte lengths precisely to prevent softlocking players!
 
 ---
 
-[h2]7. The Translation Workflow (Step-by-Step)[/h2]
+[h2]7. Building a Lightweight IoStore Patch Trio (_P.pak + .utoc + .ucas)[/h2]
 
+Instead of redistributing the entire 112 MB game PAK, you can generate a clean [b]~100 KB patch[/b] that mounts on top of the vanilla game without replacing anything!
+
+[h3]The Unreal Engine IoStore Architecture:[/h3]
+Because Torneko uses Unreal Engine's [b]IoStore[/b] container dispatcher, dropping a loose [.pak] alone will be [b]ignored[/b] by the engine at startup.
+To mount a mod properly, you must supply a trio of 3 matching files:
 [olist]
-[*] [b]Clone the Repository:[/b]
-   Download the tools from our GitHub:
-   [code]git clone https://github.com/Edsaje/French_Trad_Dragon_Quest_Heroes_Torneko-s_Mystery_Dungeon_-Classic-HD-.git[/code]
-
-[*] [b]Dump Dialogue Chunks to JSON:[/b]
-   Dialogue entries are divided into 4 chunks:
-   [b]tools/dialogue_chunk_1_fr.json[/b] to [b]tools/dialogue_chunk_4_fr.json[/b].
-   Translate the strings into your target language (Spanish, German, etc.) while keeping control tags intact.
-
-[*] [b]Translate Database Bins:[/b]
-   Edit [b]tools/build_french_mod.py[/b] (or copy it to [b]build_spanish_mod.py[/b]) to input your language's dictionary for:
-   [list]
-   [*] UI strings ([b]FRENCH_UI[/b])
-   [*] Item names ([b]ITEM_TRANSLATIONS[/b])
-   [*] Monster names ([b]MONSTER_TRANSLATIONS[/b])
-   [/list]
-
-[*] [b]Build the Translated Binaries:[/b]
-   Run the assembly scripts:
-   [code]
-   python assemble_dialogue_and_build.py
-   python build_french_mod.py
-   python translate_descriptions.py
-   python translate_dungeon_messages.py
-   python translate_phase1.py
-   [/code]
-
-[*] [b]Build the Lightweight Patch PAK (_P.pak):[/b]
-   Instead of redistributing the full 112 MB game PAK, you can generate a clean [b]~100 KB patch file[/b] using Unreal Engine's native patch priority ([b]_P.pak[/b]):
-   [code]python build_patch_pak.py[/code]
-   This script packs only your translated files from [b]mod_staging[/b], calculates directory hashes (Fnv64 seed [b]0x6409933B[/b]), pads, and encrypts the index with AES-256-ECB.
-
-   [b]Note on IoStore:[/b] Although the game uses IoStore ([b].utoc / .ucas[/b]) for engine UAssets, Radec tables are raw loose files residing strictly in the legacy PAK container. Therefore, [b]no .utoc or .ucas files are required[/b]!
-
-[*] [b]Test on PC & Steam Deck:[/b]
-   Simply drop the resulting [b]TornekosMysteryDungeon-Windows_P.pak[/b] into your game directory:
-   [code]SteamLibrary/steamapps/common/TornekosMysteryDungeon/TornekosMysteryDungeon/Content/Paks/[/code]
-   The engine mounts it with higher priority over the vanilla game files. Set your in-game language to [b]English[/b], and your translated text displays immediately without touching any original game file!
+[*] [b]YourMod_P.pak (~100 KB):[/b] Contains your translated Radec binaries from [b]mod_staging[/b], packed with [b]repak[/b] (version V11, Fnv64 path hash seed [b]0x6409933B[/b]) and encrypted with the game's AES-256 key.
+[*] [b]YourMod_P.utoc (144 bytes):[/b] A minimal IoStore Table of Contents header (EntryCount = 0) with a unique Container ID.
+[*] [b]YourMod_P.ucas (0 bytes):[/b] An empty dummy container file.
 [/olist]
+
+[b]Why this works:[/b]
+When Torneko boots, Unreal's [b]FIoDispatcher[/b] scans [code]Content/Paks/[/code] for [.utoc] files. The 144-byte [.utoc] and 0-byte [.ucas] validate the container registration, allowing [b]FPakPlatformFile[/b] to mount the companion [b]_P.pak[/b] with patch priority.
+
+Our automated script [b]tools/build_patch_pak.py[/b] packages and encrypts the entire trio automatically:
+[code]python tools/build_patch_pak.py[/code]
+
+---
+
+[h2]8. Multi-Modding & Stacking Mods (e.g. Custom Pixel Fonts)[/h2]
+
+Because patch packages mount in alphabetical priority order, you can cleanly combine your translation mod with visual mods (such as Beardmo's pixel font mod [b]BeardmosPixelyDungeon_P[/b]).
+
+[list]
+[*] If your patch name starts with a letter after other mods (for example [b]HibouxeDonjonMystere_FR_P[/b] or [b]zSpanish_P[/b]), your translated texts will safely override any vanilla UI tables included in font mods, while retaining the custom font textures!
+[*] Players simply drop the 3 mod files into [code]Content/Paks/[/code] alongside any other mods.
+[*] Uninstalling is as simple as deleting the 3 mod files.
+[/list]
 
 ---
 
@@ -314,4 +286,3 @@ If this guide helped you or saved you time in reverse-engineering the game:
 [/list]
 
 Happy modding, and long live the Dragon Quest community!
-
