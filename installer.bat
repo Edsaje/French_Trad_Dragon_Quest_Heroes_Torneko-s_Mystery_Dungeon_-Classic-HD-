@@ -1,16 +1,15 @@
 @echo off
 chcp 65001 >nul
-title Patch Français v1.2.0 - Dragon Quest Torneko (Mod Patch)
+title Installation du Patch Francais - Dragon Quest Torneko
 color 0B
 
 echo =======================================================================
 echo    Dragon Quest Heroes: Torneko's Mystery Dungeon -Classic HD-
-echo       Patch de Traduction Francaise v1.2.0 (Patch _P.pak) - Par Hibouxe
+echo        Patch de Traduction Francaise Integrale (100%) - Par Hibouxe
 echo =======================================================================
 echo.
 
-set "BASE_PAK=TornekosMysteryDungeon-Windows.pak"
-set "PATCH_PAK=TornekosMysteryDungeon-Windows_P.pak"
+set "PAK_NAME=TornekosMysteryDungeon-Windows.pak"
 set "FOUND_PATH="
 
 :: Detection automatique des dossiers Steam courants
@@ -22,7 +21,7 @@ for %%D in (
     "F:\SteamLibrary\steamapps\common\TornekosMysteryDungeon"
     "G:\SteamLibrary\steamapps\common\TornekosMysteryDungeon"
 ) do (
-    if exist "%%~D\TornekosMysteryDungeon\Content\Paks\%BASE_PAK%" (
+    if exist "%%~D\TornekosMysteryDungeon\Content\Paks\%PAK_NAME%" (
         set "FOUND_PATH=%%~D\TornekosMysteryDungeon\Content\Paks"
         goto :menu
     )
@@ -34,20 +33,20 @@ echo.
 set /p "USER_PATH=Veuillez glisser-deposer le dossier du jeu ou entrer le chemin : "
 set "USER_PATH=%USER_PATH:"=%"
 
-if exist "%USER_PATH%\TornekosMysteryDungeon\Content\Paks\%BASE_PAK%" (
+if exist "%USER_PATH%\TornekosMysteryDungeon\Content\Paks\%PAK_NAME%" (
     set "FOUND_PATH=%USER_PATH%\TornekosMysteryDungeon\Content\Paks"
     goto :menu
 )
-if exist "%USER_PATH%\Content\Paks\%BASE_PAK%" (
+if exist "%USER_PATH%\Content\Paks\%PAK_NAME%" (
     set "FOUND_PATH=%USER_PATH%\Content\Paks"
     goto :menu
 )
-if exist "%USER_PATH%\%BASE_PAK%" (
+if exist "%USER_PATH%\%PAK_NAME%" (
     set "FOUND_PATH=%USER_PATH%"
     goto :menu
 )
 
-echo [ERREUR] Dossier invalide. Le fichier %BASE_PAK% est introuvable.
+echo [ERREUR] Dossier invalide. Le fichier %PAK_NAME% est introuvable.
 echo.
 pause
 goto :ask_path
@@ -57,8 +56,8 @@ echo Dossier du jeu detecte :
 echo %FOUND_PATH%
 echo.
 echo Que souhaitez-vous faire ?
-echo   [1] Installer le patch francais v1.2.0
-echo   [2] Desinstaller le patch francais (revenir a la version officielle)
+echo   [1] Installer le patch francais (Sauvegarde automatique incluse)
+echo   [2] Desinstaller le patch (Restaurer la version officielle d'origine)
 echo   [3] Quitter
 echo.
 set /p "CHOICE=Votre choix (1/2/3) : "
@@ -69,39 +68,35 @@ if "%CHOICE%"=="3" exit /b 0
 goto :menu
 
 :install
-:: Source du patch
-if exist "%~dp0%PATCH_PAK%" (
-    set "SRC_PAK=%~dp0%PATCH_PAK%"
-) else if exist "%~dp0patch\%PATCH_PAK%" (
-    set "SRC_PAK=%~dp0patch\%PATCH_PAK%"
+if exist "%~dp0%PAK_NAME%" (
+    set "SRC_PAK=%~dp0%PAK_NAME%"
+) else if exist "%~dp0patch\%PAK_NAME%" (
+    set "SRC_PAK=%~dp0patch\%PAK_NAME%"
 ) else (
-    echo [ERREUR] Le fichier %PATCH_PAK% est introuvable.
+    echo [ERREUR] Le fichier %PAK_NAME% est introuvable dans ce dossier.
     echo Assurez-vous d'avoir bien extrait tout le contenu de l'archive ZIP.
     pause
     exit /b 1
 )
 
-:: Si l'utilisateur avait une sauvegarde v1.1.0 et que son pak de base etait modifie, on restaure le pak d'origine
-if exist "%FOUND_PATH%\%BASE_PAK%.original_backup" (
-    echo Une sauvegarde de votre fichier original pre-v1.2 a ete detectee.
-    echo Restauration du fichier de base propre...
-    copy /y "%FOUND_PATH%\%BASE_PAK%.original_backup" "%FOUND_PATH%\%BASE_PAK%" >nul
+:: Sauvegarde automatique du fichier d'origine avant tout ecrasement
+if not exist "%FOUND_PATH%\%PAK_NAME%.original_backup" (
+    echo Creation d'une sauvegarde de secours de votre fichier d'origine...
+    copy "%FOUND_PATH%\%PAK_NAME%" "%FOUND_PATH%\%PAK_NAME%.original_backup" >nul
+    echo [OK] Sauvegarde creee : %PAK_NAME%.original_backup
 )
 
 echo.
-echo Installation du fichier patch (%PATCH_PAK%)...
-copy /y "%SRC_PAK%" "%FOUND_PATH%\%PATCH_PAK%" >nul
+echo Copie du patch francais en cours...
+copy /y "%SRC_PAK%" "%FOUND_PATH%\%PAK_NAME%" >nul
 
 if %ERRORLEVEL% equ 0 (
     echo.
     echo =======================================================================
-    echo   [SUCCES] Le patch francais v1.2.0 a ete installe avec succes !
+    echo   [SUCCES] Le patch francais a ete installe avec succes !
     echo =======================================================================
     echo.
-    echo Le patch fonctionne de maniere non-destructive sans toucher aux fichiers
-    echo officiels du jeu.
-    echo.
-    echo IMPORTANT : Mettez la langue du jeu en ANGLAIS dans les options.
+    echo Pensez a mettre la langue du jeu en ANGLAIS dans les options du jeu.
     echo Retrouvez mes guides et projets sur YouTube : @Hibouxe !
     echo.
 ) else (
@@ -113,18 +108,16 @@ pause
 exit /b 0
 
 :uninstall
-if exist "%FOUND_PATH%\%PATCH_PAK%" (
-    del /f /q "%FOUND_PATH%\%PATCH_PAK%"
+if exist "%FOUND_PATH%\%PAK_NAME%.original_backup" (
+    copy /y "%FOUND_PATH%\%PAK_NAME%.original_backup" "%FOUND_PATH%\%PAK_NAME%" >nul
     echo.
-    echo [OK] Le fichier patch %PATCH_PAK% a ete supprime.
-    echo Votre jeu est maintenant 100%% en version officielle d'origine !
+    echo [OK] Fichier d'origine restaure avec succes !
+    echo Votre jeu est maintenant 100%% en version officielle.
 ) else (
     echo.
-    echo Le patch francais n'etait pas installe dans ce dossier.
-)
-if exist "%FOUND_PATH%\%BASE_PAK%.original_backup" (
-    copy /y "%FOUND_PATH%\%BASE_PAK%.original_backup" "%FOUND_PATH%\%BASE_PAK%" >nul
-    echo Fichier de base restaure a partir de la sauvegarde d'origine.
+    echo [INFO] Aucune sauvegarde locale trouvee.
+    echo Pour restaurer les fichiers officiels via Steam :
+    echo Clic droit sur le jeu > Proprietes > Fichiers installes > Verifier l'integrite.
 )
 echo.
 pause

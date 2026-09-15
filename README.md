@@ -39,11 +39,10 @@ Pour suivre le développement de la traduction, découvrir des vidéos de gamepl
 
 ## 📝 Journal des modifications (Changelog)
 
-### Version 1.2.0 (Patch non-destructif Unreal `_P.pak` & Poids plume)
-- **Format de patch natif Unreal Engine (`_P.pak`) :** Le patch ne remplace plus le fichier original de 112 Mo. Il s'applique par-dessus en mémoire avec une priorité supérieure.
-- **Poids ultra-réduit (~100 Ko au lieu de 90 Mo) :** Téléchargement instantané pour tous les joueurs.
-- **Compatibilité multi-mods totale :** Vos autres mods ne risquent plus d'être écrasés.
-- **Module autonome `tools/radec_codec.py` :** Outil tout-en-un documenté pour les moddeurs d'autres langues.
+### Version 1.2.0 (Outils autonomes, Mapping EN/JP & Packaging stable)
+- **Module autonome `tools/radec_codec.py` :** Outil tout-en-un avec CLI pour décompresser, sérialiser (Gm::Variant), chiffrer et encoder (codec 6-bit) pour toute la communauté.
+- **Cartographie complète des File ID EN ⟷ JP :** Documentation intégrale des 14 tables de données (voir `guides/RADEC_FILE_ID_MAP_EN_JP.md`).
+- **Installateur v1.2.0 avec sauvegarde automatique :** `installer.bat` gère l'installation et la restauration de votre fichier d'origine en 1 clic.
 
 ### Version 1.1.0 (Correctif majeur & Finalisation lore)
 - **Correction du freeze / softlock critique :** Résolution d'un dysfonctionnement binaire de balise dans les scènes d'agrandissement de la boutique.
@@ -56,36 +55,36 @@ Pour suivre le développement de la traduction, découvrir des vidéos de gamepl
 ## 📥 Téléchargement & Installation
 
 ### Option 1 : Installation automatique en 1-clic (Recommandé)
-1. Téléchargez la dernière archive : [**TornekosMysteryDungeon-Windows_Patch_FR_v1.2.0.zip**](patch/TornekosMysteryDungeon-Windows_Patch_FR_v1.2.0.zip) *(~100 Ko)*
+1. Téléchargez la dernière archive : [**TornekosMysteryDungeon-Windows_Patch_FR_v1.2.0.zip**](patch/TornekosMysteryDungeon-Windows_Patch_FR_v1.2.0.zip)
 2. Décompressez l'archive sur votre ordinateur.
-3. Lancez **`installer.bat`** et choisissez `[1]` (le script détecte automatiquement votre jeu et installe le patch en 1 seconde).
+3. Lancez **`installer.bat`** et tapez `[1]` (le script détecte automatiquement votre jeu, sauvegarde vos fichiers originaux et installe le patch en 3 secondes).
 4. Lancez le jeu via Steam en vous assurant que la langue est configurée sur **Anglais** dans les paramètres du jeu (le français s'affichera directement).
 
-### Option 2 : Installation manuelle (Glisser-Déposer en 10 secondes)
+### Option 2 : Installation manuelle (30 secondes)
 1. Téléchargez l'archive [**TornekosMysteryDungeon-Windows_Patch_FR_v1.2.0.zip**](patch/TornekosMysteryDungeon-Windows_Patch_FR_v1.2.0.zip).
 2. Ouvrez votre bibliothèque Steam, faites un clic droit sur le jeu > **Gérer** > **Parcourir les fichiers locaux**.
 3. Allez dans le répertoire :
    ```
    TornekosMysteryDungeon / Content / Paks /
    ```
-4. Glissez-y simplement le fichier **`TornekosMysteryDungeon-Windows_P.pak`** extrait de l'archive.
-5. Lancez le jeu avec la langue réglée sur **Anglais**. Bon jeu !
+4. *(Recommandé)* Renommez le fichier existant `TornekosMysteryDungeon-Windows.pak` en `TornekosMysteryDungeon-Windows.pak.backup`.
+5. Copiez le fichier `TornekosMysteryDungeon-Windows.pak` extrait de l'archive dans ce dossier.
+6. Lancez le jeu avec la langue réglée sur **Anglais**. Bon jeu !
 
 ### 🎮 Installation sur Steam Deck & Linux (SteamOS / Proton)
 Le patch est **100% compatible Steam Deck et Linux** !
 1. Sur Steam Deck, passez en **Mode Bureau** (*Bouton STEAM > Marche/Arrêt > Basculer vers le bureau*).
-2. Téléchargez l'archive du patch et extrayez le fichier `TornekosMysteryDungeon-Windows_P.pak`.
+2. Téléchargez l'archive du patch et extrayez le fichier `TornekosMysteryDungeon-Windows.pak`.
 3. Rendez-vous dans :
    ```
    TornekosMysteryDungeon / Content / Paks /
    ```
-4. Copiez-y `TornekosMysteryDungeon-Windows_P.pak`.
+4. Remplacez le fichier `TornekosMysteryDungeon-Windows.pak`.
 5. Repassez en **Mode Jeu** : Torneko se lance directement en français !
 
 ### Désinstallation
-Pour revenir à la version anglaise ou japonaise officielle d'origine :
-- Supprimez simplement le fichier **`TornekosMysteryDungeon-Windows_P.pak`** du dossier `Content/Paks/` (ou lancez `installer.bat` et tapez `[2]`).
-- Votre jeu redevient instantanément 100% officiel sans avoir besoin de re-télécharger quoi que ce soit sur Steam !
+- Si vous avez utilisé `installer.bat`, lancez-le simplement et tapez `[2]` pour restaurer instantanément votre sauvegarde officielle.
+- Ou via Steam : *Clic droit sur le jeu > Propriétés > Fichiers installés > Vérifier l'intégrité des fichiers du jeu.*
 
 ---
 
